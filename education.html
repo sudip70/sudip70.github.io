@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Education — Sudip Shrestha</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-header { max-width: var(--max); margin: 0 auto; padding: 80px 40px 60px; }
+    .edu-grid { display: grid; gap: 24px; margin-top: 40px; }
+    .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 36px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; transition: border-color 0.25s, transform 0.25s; }
+    .edu-card:hover { border-color: rgba(200,240,96,0.25); transform: translateY(-2px); }
+    .edu-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(200,240,96,0.1); border: 1px solid rgba(200,240,96,0.2); display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+    .edu-icon.blue { background: rgba(96,208,240,0.1); border-color: rgba(96,208,240,0.2); }
+    .edu-meta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .edu-card h3 { font-size: 20px; margin-bottom: 4px; }
+    .edu-school { font-size: 15px; color: var(--muted); margin-bottom: 4px; }
+    .edu-location { font-size: 13px; color: var(--muted); margin-bottom: 16px; opacity: 0.7; }
+    .edu-card p { font-size: 14px; color: var(--muted); max-width: 540px; margin-bottom: 16px; }
+    .edu-tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 32px; }
+    .course-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; transition: border-color 0.2s; }
+    .course-card:hover { border-color: rgba(96,208,240,0.25); }
+    .course-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); margin-top: 8px; flex-shrink: 0; }
+    .course-card span { font-size: 14px; color: var(--text); line-height: 1.4; }
+
+    /* Research section */
+    .research-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .research-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 28px 32px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; transition: border-color 0.2s, transform 0.2s; }
+    .research-card:hover { border-color: rgba(200,240,96,0.25); transform: translateY(-2px); }
+    .research-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(200,240,96,0.08); border: 1px solid rgba(200,240,96,0.15); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .research-venue { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .research-card h4 { font-size: 16px; color: var(--heading); margin-bottom: 8px; }
+    .research-card p { font-size: 14px; color: var(--muted); }
+
+    @media (max-width: 768px) { .page-header { padding-left: 20px; padding-right: 20px; } .edu-card { grid-template-columns: 1fr; } .research-card { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Sudip<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="education.html" class="active">Education</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <p class="section-label fade-up d1">Background</p>
+      <h1 class="fade-up d2">Education</h1>
+      <p style="color:var(--muted); max-width:480px; margin-top:16px; font-size:18px;" class="fade-up d3">
+        Academic foundations across IT, Big Data, and applied research.
+      </p>
+    </div>
+
+    <!-- DEGREES -->
+    <section>
+      <div class="edu-grid">
+
+        <div class="edu-card fade-up d1">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <div class="edu-meta">Post-Graduate Diploma · Big Data Analytics</div>
+            <h3>PGD in Big Data Analytics</h3>
+            <div class="edu-school">Lambton College</div>
+            <div class="edu-location">Mississauga, Ontario, Canada</div>
+            <p>
+              Advanced study in big data technologies, cloud platforms, machine learning pipelines, statistical analysis, and data visualization. Practical focus on building production-grade data systems.
+            </p>
+            <div class="edu-tag-row">
+              <span class="tag">Big Data</span>
+              <span class="tag blue">GCP / AWS / Azure</span>
+              <span class="tag neutral">Spark</span>
+              <span class="tag neutral">Machine Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card fade-up d2">
+          <div class="edu-icon blue">💻</div>
+          <div>
+            <div class="edu-meta">Bachelor of Science · Information Technology</div>
+            <h3>BSc in Information Technology</h3>
+            <div class="edu-school">Islington College (London Metropolitan University)</div>
+            <div class="edu-location">Kathmandu, Bagmati, Nepal</div>
+            <p>
+              Undergraduate degree covering software engineering, networking, databases, web development, and programming fundamentals. Awarded by London Metropolitan University through Islington College.
+            </p>
+            <div class="edu-tag-row">
+              <span class="tag">Software Engineering</span>
+              <span class="tag neutral">Databases</span>
+              <span class="tag neutral">Networking</span>
+              <span class="tag neutral">Python / C#</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- COURSEWORK -->
+    <section>
+      <p class="section-label">Curriculum</p>
+      <h2>Key Areas of Study</h2>
+      <div class="course-grid">
+        <div class="course-card fade-up d1"><div class="course-dot"></div><span>Big Data Engineering</span></div>
+        <div class="course-card fade-up d1"><div class="course-dot"></div><span>Machine Learning & AI</span></div>
+        <div class="course-card fade-up d2"><div class="course-dot"></div><span>Cloud Platforms (GCP, AWS, Azure)</span></div>
+        <div class="course-card fade-up d2"><div class="course-dot"></div><span>Data Warehousing & ETL</span></div>
+        <div class="course-card fade-up d3"><div class="course-dot"></div><span>Statistical Analysis</span></div>
+        <div class="course-card fade-up d3"><div class="course-dot"></div><span>Data Visualization & BI</span></div>
+        <div class="course-card fade-up d4"><div class="course-dot"></div><span>Database Management Systems</span></div>
+        <div class="course-card fade-up d4"><div class="course-dot"></div><span>Software Engineering Principles</span></div>
+        <div class="course-card fade-up d5"><div class="course-dot"></div><span>Natural Language Processing</span></div>
+        <div class="course-card fade-up d5"><div class="course-dot"></div><span>Computer Networks & Security</span></div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- RESEARCH & PUBLICATIONS -->
+    <section style="padding-bottom:80px;">
+      <p class="section-label">Research & Publications</p>
+      <h2>Published Work</h2>
+
+      <div class="research-grid">
+
+        <div class="research-card fade-up d1">
+          <div class="research-icon">🌑</div>
+          <div>
+            <div class="research-venue">NASA-Supported Citizen Science · Dec 2024 – Dec 2025</div>
+            <h4>Eclipse Mega Movie 2024</h4>
+            <p>Contributed to a NASA-supported initiative by analyzing solar eclipse data using Python and OpenCV. Developed a specialized image alignment tool to facilitate large-scale imagery processing. Collaborated across a multidisciplinary team to support data preparation and project goals.</p>
+          </div>
+        </div>
+
+        <div class="research-card fade-up d2">
+          <div class="research-icon">🔬</div>
+          <div>
+            <div class="research-venue">Conference Poster · NoBugs 2022 · PSI, Switzerland</div>
+            <h4>A Common Control and Readout Software for Different X-ray Detector Systems</h4>
+            <p>Presented as a poster at the NoBugs Conference 2022 at Paul Scherrer Institute, Switzerland. Covered the development of unified control software for multiple X-ray photon detector systems used in advanced physics research.</p>
+          </div>
+        </div>
+
+        <div class="research-card fade-up d3">
+          <div class="research-icon">📡</div>
+          <div>
+            <div class="research-venue">Technical Poster · ResearchGate</div>
+            <h4>The Single Photon-Counting Microstrip Detector MYTHEN II</h4>
+            <p>Technical poster published via ResearchGate documenting the MYTHEN II single photon-counting microstrip detector — a high-precision scientific instrument used in synchrotron experiments.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer><span>© 2025 Sudip Shrestha · Mississauga, ON, Canada</span></footer>
+  </div>
+</body>
+</html>

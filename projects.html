@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Sudip Shrestha</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-header { max-width: var(--max); margin: 0 auto; padding: 80px 40px 60px; }
+
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { font-family: 'DM Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s; letter-spacing: 0.04em; }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(200,240,96,0.05); }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+
+    .proj-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: border-color 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+    .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
+    .proj-card:hover { border-color: rgba(200,240,96,0.2); transform: translateY(-4px); }
+    .proj-card:hover::before { opacity: 1; }
+
+    .proj-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .proj-icon-lg { width: 52px; height: 52px; border-radius: 12px; background: rgba(200,240,96,0.08); border: 1px solid rgba(200,240,96,0.15); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+    .proj-icon-lg.blue { background: rgba(96,208,240,0.08); border-color: rgba(96,208,240,0.15); }
+
+    .proj-links { display: flex; gap: 8px; }
+    .proj-links a { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 14px; transition: all 0.2s; }
+    .proj-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+    .proj-card h3 { font-size: 18px; }
+    .proj-card p { font-size: 14px; color: var(--muted); flex-grow: 1; line-height: 1.6; }
+
+    .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .proj-card .t { display: inline-flex; font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border-radius: 4px; background: var(--surface2); color: var(--muted); border: 1px solid var(--border); letter-spacing: 0.04em; }
+
+    .badge { position: absolute; top: 16px; right: 16px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+    .badge-startup { background: rgba(200,240,96,0.1); color: var(--accent); border: 1px solid rgba(200,240,96,0.2); }
+    .badge-nasa { background: rgba(96,208,240,0.1); color: var(--accent2); border: 1px solid rgba(96,208,240,0.2); }
+    .badge-oss { background: rgba(255,200,96,0.1); color: #f0d060; border: 1px solid rgba(255,200,96,0.2); }
+
+    @media (max-width: 768px) { .page-header { padding-left: 20px; padding-right: 20px; } .projects-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Sudip<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <p class="section-label fade-up d1">Portfolio</p>
+      <h1 class="fade-up d2">Projects</h1>
+      <p style="color:var(--muted); max-width:480px; margin-top:16px; font-size:18px;" class="fade-up d3">
+        From multi-agent RL to NASA citizen science — things I've built and researched.
+      </p>
+    </div>
+
+    <section style="padding-top:0;">
+      <div class="filter-bar fade-up d4">
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+        <button class="filter-btn" onclick="filterProjects('ml', this)">ML / AI</button>
+        <button class="filter-btn" onclick="filterProjects('nlp', this)">NLP</button>
+        <button class="filter-btn" onclick="filterProjects('cloud', this)">Cloud</button>
+        <button class="filter-btn" onclick="filterProjects('cv', this)">Computer Vision</button>
+        <button class="filter-btn" onclick="filterProjects('research', this)">Research</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- MarketMind -->
+        <div class="proj-card fade-up d1" data-tags="ml cloud">
+          <span class="badge badge-startup">🚀 Startup</span>
+          <div class="proj-header">
+            <div class="proj-icon-lg">📈</div>
+          </div>
+          <h3>MarketMind</h3>
+          <p>Portfolio allocation system using Multi-Agent Reinforcement Learning. Leading development of individual agent models and meta-models. Designing financial data pipelines with historical trading data (stocks, crypto, ETFs) from 2010–present. Integrates with Alpaca paper trading.</p>
+          <div style="font-size:12px; color:var(--muted); font-family:'DM Mono',monospace;">Advised by Prof. Bhavik Gandhi, Lambton College</div>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">PyTorch</span><span class="t">Azure</span><span class="t">Supabase</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">PPO / SAC</span>
+          </div>
+        </div>
+
+        <!-- Plant Disease -->
+        <div class="proj-card fade-up d2" data-tags="ml cv">
+          <div class="proj-header">
+            <div class="proj-icon-lg">🌿</div>
+            <div class="proj-links">
+              <a href="https://huggingface.co" target="_blank" title="Hugging Face">🤗</a>
+            </div>
+          </div>
+          <h3>Plant Disease Detection</h3>
+          <p>Pre-processed 10K+ mango leaf images using OpenCV. Applied augmentation (resize, normalize, rotate) for generalization. Built and trained a custom deep learning CNN achieving ~97% accuracy on validation data. Deployed via Flask endpoint and Hugging Face Spaces with an accessible Streamlit UI.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">PyTorch</span><span class="t">TensorFlow</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">SQLite</span>
+          </div>
+        </div>
+
+        <!-- Healthcare NLP -->
+        <div class="proj-card fade-up d3" data-tags="nlp cloud ml">
+          <div class="proj-header">
+            <div class="proj-icon-lg blue">🏥</div>
+            <div class="proj-links">
+              <a href="https://huggingface.co" target="_blank" title="Hugging Face">🤗</a>
+            </div>
+          </div>
+          <h3>Healthcare Sentiment NLP</h3>
+          <p>Collected and processed 1.6M+ unstructured healthcare reviews — data cleaning, transformation, and modeling. Built scalable GCP workflows for data ingestion and model training. Deployed NLP pipeline and UI via Streamlit for real-time sentiment tracking with visualization dashboards.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">GCP</span><span class="t">Scikit-learn</span><span class="t">Pandas</span><span class="t">NLP</span><span class="t">Streamlit</span><span class="t">Hugging Face</span>
+          </div>
+        </div>
+
+        <!-- Eclipse Mega Movie -->
+        <div class="proj-card fade-up d4" data-tags="research cv">
+          <span class="badge badge-nasa">🛸 NASA</span>
+          <div class="proj-header">
+            <div class="proj-icon-lg">🌑</div>
+          </div>
+          <h3>Eclipse Mega Movie 2024</h3>
+          <p>Contributed to a NASA-supported citizen science initiative by analyzing solar eclipse data using Python and OpenCV. Developed a specialized image alignment tool for large-scale imagery processing. Collaborated across a multidisciplinary team on data preparation and project goals.</p>
+          <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--muted);">Dec 2024 – Dec 2025</div>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">OpenCV</span><span class="t">Image Processing</span>
+          </div>
+        </div>
+
+        <!-- PyCTBGUI -->
+        <div class="proj-card fade-up d5" data-tags="research">
+          <span class="badge badge-oss">Open Source</span>
+          <div class="proj-header">
+            <div class="proj-icon-lg">🔬</div>
+            <div class="proj-links">
+              <a href="https://github.com/slsdetectorgroup/pyctbgui" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>PyCTBGUI — PSI</h3>
+          <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute. Enables researchers to configure and control X-ray and photon detector hardware with live signal visualization. Presented as a poster at NoBugs Conference 2022, Switzerland.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">PyQt</span><span class="t">Matplotlib</span><span class="t">Plotly</span><span class="t">Linux</span>
+          </div>
+        </div>
+
+        <!-- Social Dashboard -->
+        <div class="proj-card fade-up d1" data-tags="ml">
+          <div class="proj-header">
+            <div class="proj-icon-lg blue">📊</div>
+            <div class="proj-links">
+              <a href="https://github.com/sudip70/Social_Dashboard" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>Social Media Dashboard</h3>
+          <p>Interactive analytics dashboard visualizing social media engagement metrics, follower trends, and content performance. Responsive data-driven design built for real-time insight delivery.</p>
+          <div class="proj-tags">
+            <span class="t">HTML</span><span class="t">CSS</span><span class="t">JavaScript</span><span class="t">Data Viz</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer><span>© 2025 Sudip Shrestha · Mississauga, ON, Canada</span></footer>
+  </div>
+
+  <script>
+    function filterProjects(tag, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const tags = card.getAttribute('data-tags') || '';
+        card.style.display = (tag === 'all' || tags.includes(tag)) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
