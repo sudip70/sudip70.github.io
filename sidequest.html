@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidequest — Sudip Shrestha</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="theme.js"></script>
+  <style>
+    .page-header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 40px 20px;
+    }
+
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    .page-intro {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px 56px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-intro p { color: var(--muted); font-size: 16px; max-width: 480px; line-height: 1.7; }
+
+    .shot-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding-bottom: 4px;
+    }
+
+    .shot-count span {
+      color: var(--accent);
+      font-size: 28px;
+      font-family: 'DM Serif Display', serif;
+      letter-spacing: -1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ── GRID ── */
+    .gallery-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 40px 80px;
+    }
+
+    .masonry {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) { .masonry { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .masonry { grid-template-columns: 1fr; } }
+
+    /* ── PHOTO CARD ── */
+    .photo-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+
+    .photo-item:hover .photo-overlay { opacity: 1; }
+    .photo-item:hover .photo-img { transform: scale(1.04); }
+
+    /* ── IMAGE ── */
+    .photo-img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1740 / 2252;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: var(--surface2);
+    }
+
+    /* ── HOVER OVERLAY ── */
+    .photo-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      bottom: 54px;
+      background: linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.62) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+      pointer-events: none;
+    }
+
+    .overlay-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      color: #fff;
+      letter-spacing: 0.07em;
+      background: rgba(0,0,0,0.32);
+      backdrop-filter: blur(8px);
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    /* ── CAPTION ── */
+    .photo-caption {
+      padding: 11px 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    .pin-icon { color: var(--accent); flex-shrink: 0; }
+    .caption-text { display: flex; flex-direction: column; gap: 1px; }
+
+    .caption-location {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    .caption-note { font-size: 12px; color: var(--muted); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px 40px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 520px;
+      width: 100%;
+      animation: lbIn 0.22s ease;
+    }
+
+    @keyframes lbIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .lb-img-wrap { border-radius: 10px; overflow: hidden; background: #111; line-height: 0; }
+
+    .lb-img-wrap img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lb-meta {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lb-location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.06em;
+    }
+
+    .lb-note { font-size: 13px; color: rgba(255,255,255,0.4); font-style: italic; }
+    .lb-counter { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.28); margin-left: auto; letter-spacing: 0.1em; }
+
+    .lb-close {
+      position: absolute;
+      top: -46px; right: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lb-close:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+    .lb-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; line-height: 1;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lb-nav:hover { background: rgba(255,255,255,0.16); color: #fff; }
+    .lb-prev { left: -62px; }
+    .lb-next { right: -62px; }
+
+    @media (max-width: 720px) {
+      .lightbox { padding: 48px 16px 30px; }
+      .lb-prev, .lb-next { display: none; }
+      .lightbox-inner { max-width: 100%; }
+    }
+
+    @media (max-width: 768px) {
+      .page-header, .page-intro, .gallery-wrap { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Sudip<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sidequest.html" class="active">Sidequest</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <div class="page-header">
+      <p class="section-label fade-up d1">Beyond the code</p>
+      <h1 class="fade-up d2">Side<em>quest</em></h1>
+    </div>
+
+    <div class="page-intro fade-up d3">
+      <p>
+        When I'm not building data pipelines or training models, I'm behind a lens.
+        Photography teaches me the same thing good code does — details matter,
+        and restraint is its own kind of craft.
+      </p>
+      <div class="shot-count">
+        <span>10</span>
+        frames selected
+      </div>
+    </div>
+
+    <!-- ── GALLERY · order: Nepal → Swiss → Germany → Qatar → Canada ── -->
+    <div class="gallery-wrap">
+      <div class="masonry">
+
+        <!-- 01 · Nepal -->
+        <div class="photo-item fade-up d1" onclick="openLightbox(0)">
+          <img class="photo-img" src="images/Kathmandu1.jpg" alt="Kathmandu, Nepal" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Kathmandu, Nepal
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Kathmandu, Nepal</span>
+              <span class="caption-note">Eyes that see everything and beyond.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 · Nepal -->
+        <div class="photo-item fade-up d2" onclick="openLightbox(1)">
+          <img class="photo-img" src="images/kathmandu2.jpg" alt="Kathmandu, Nepal" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Kathmandu, Nepal
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Kathmandu, Nepal</span>
+              <span class="caption-note">What do they say about Kathmandu?</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 · Nepal -->
+        <div class="photo-item fade-up d3" onclick="openLightbox(2)">
+          <img class="photo-img" src="images/langtang.jpg" alt="Langtang National Park, Nepal" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Langtang National Park, Nepal
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Langtang National Park, Nepal</span>
+              <span class="caption-note">Mountains in hikes are further than they appear.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 · Switzerland -->
+        <div class="photo-item fade-up d4" onclick="openLightbox(3)">
+          <img class="photo-img" src="images/swiss1.jpg" alt="Kandersteg, Switzerland" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Kandersteg, Switzerland
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Kandersteg, Switzerland</span>
+              <span class="caption-note">Rigid mountain &amp; Faith.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 · Switzerland -->
+        <div class="photo-item fade-up d5" onclick="openLightbox(4)">
+          <img class="photo-img" src="images/swiss2.JPG" alt="Oeschinensee, Switzerland" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Oeschinensee, Switzerland
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Oeschinensee, Switzerland</span>
+              <span class="caption-note">Bucketlist &amp; Blue lake.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 · Germany -->
+        <div class="photo-item fade-up d1" onclick="openLightbox(5)">
+          <img class="photo-img" src="images/germany.jpg" alt="Koblenz, Germany" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Koblenz, Germany
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Koblenz, Germany</span>
+              <span class="caption-note">Symmetry.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 · Qatar -->
+        <div class="photo-item fade-up d2" onclick="openLightbox(6)">
+          <img class="photo-img" src="images/qatar.jpg" alt="Doha, Qatar" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Doha, Qatar
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Doha, Qatar</span>
+              <span class="caption-note">Lights and cityscape.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 · Canada -->
+        <div class="photo-item fade-up d3" onclick="openLightbox(7)">
+          <img class="photo-img" src="images/canada1.JPG" alt="Toronto, Canada" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Toronto, Canada
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Toronto, Canada</span>
+              <span class="caption-note">Northern lights from the city.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 · Canada -->
+        <div class="photo-item fade-up d4" onclick="openLightbox(8)">
+          <img class="photo-img" src="images/canada2.JPG" alt="Toronto, Canada" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Toronto, Canada
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Toronto, Canada</span>
+              <span class="caption-note">Total solar eclipse.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 · Canada -->
+        <div class="photo-item fade-up d5" onclick="openLightbox(9)">
+          <img class="photo-img" src="images/canada3.JPG" alt="Toronto, Canada" loading="lazy" />
+          <div class="photo-overlay">
+            <div class="overlay-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Toronto, Canada
+            </div>
+          </div>
+          <div class="photo-caption">
+            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="caption-text">
+              <span class="caption-location">Toronto, Canada</span>
+              <span class="caption-note">Engineering and pinnacle of motorsports.</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /masonry -->
+    </div>
+
+    <footer><span>© 2026 Sudip Shrestha · Mississauga, ON, Canada</span></footer>
+  </div>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+    <div class="lightbox-inner">
+      <button class="lb-close" onclick="closeLightbox()">✕</button>
+      <button class="lb-nav lb-prev" onclick="navLightbox(-1)">‹</button>
+      <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
+      <div class="lb-img-wrap">
+        <img id="lb-img" src="" alt="" />
+      </div>
+      <div class="lb-meta">
+        <div class="lb-location" id="lb-location"></div>
+        <div class="lb-note"     id="lb-note"></div>
+        <div class="lb-counter"  id="lb-counter"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── photo data – Nepal → Swiss → Germany → Qatar → Canada ────────────
+    const photos = [
+      // Nepal
+      { src: "images/Kathmandu1.jpg", location: "Kathmandu, Nepal",                 note: "Eyes that see everything and beyond."              },
+      { src: "images/kathmandu2.jpg", location: "Kathmandu, Nepal",                 note: "What do they say about Kathmandu?"                 },
+      { src: "images/langtang.jpg",   location: "Langtang National Park, Nepal",    note: "Mountains in hikes are further than they appear."  },
+      // Switzerland
+      { src: "images/swiss1.jpg",     location: "Kandersteg, Switzerland",          note: "Rigid mountain & Faith."                           },
+      { src: "images/swiss2.JPG",     location: "Oeschinensee, Switzerland",        note: "Bucketlist & Blue lake."                           },
+      // Germany
+      { src: "images/germany.jpg",    location: "Koblenz, Germany",                 note: "Symmetry."                                         },
+      // Qatar
+      { src: "images/qatar.jpg",      location: "Doha, Qatar",                      note: "Lights and cityscape."                             },
+      // Canada
+      { src: "images/canada1.JPG",    location: "Toronto, Canada",                  note: "Northern lights from the city."                    },
+      { src: "images/canada2.JPG",    location: "Toronto, Canada",                  note: "Total solar eclipse."                              },
+      { src: "images/canada3.JPG",    location: "Toronto, Canada",                  note: "Engineering and pinnacle of motorsports."          },
+    ];
+
+    let current = 0;
+
+    function openLightbox(idx) {
+      current = idx;
+      render();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeLightboxOnBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
+    function navLightbox(dir) {
+      current = (current + dir + photos.length) % photos.length;
+      render();
+    }
+
+    function render() {
+      const p = photos[current];
+      const img = document.getElementById('lb-img');
+      img.src = p.src;
+      img.alt = p.location;
+      document.getElementById('lb-location').innerHTML = `
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:.65">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>${p.location}`;
+      document.getElementById('lb-note').textContent    = p.note;
+      document.getElementById('lb-counter').textContent = `${current + 1} / ${photos.length}`;
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') navLightbox(1);
+      if (e.key === 'ArrowLeft')  navLightbox(-1);
+      if (e.key === 'Escape')     closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
