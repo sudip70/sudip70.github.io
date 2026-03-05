@@ -42,6 +42,13 @@
     .exp-title { font-size: 14px; font-weight: 500; color: var(--heading); }
     .exp-company { font-size: 13px; color: var(--muted); }
     .exp-date { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .sidequest-divider { display: flex; align-items: center; gap: 16px; margin: 28px auto 0; max-width: 320px; }
+    .sidequest-divider::before,
+    .sidequest-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .sidequest-divider span { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
+    .sidequest-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; padding: 10px 20px; border: 1px solid var(--border); border-radius: 8px; transition: color 0.2s, border-color 0.2s; }
+    .sidequest-link:hover { color: var(--accent); border-color: rgba(200,240,96,0.3); }
+    .sidequest-link .sq-icon { font-size: 14px; }
   </style>
 </head>
 <body>
@@ -195,6 +202,12 @@
       <h2 style="margin-bottom:16px;">Have a project in mind?</h2>
       <p style="color:var(--muted); max-width:480px; margin:0 auto 32px;">I'm open to new roles and collaborations in data analytics, ML engineering, and AI. Let's talk.</p>
       <a class="btn btn-primary" href="contact.html">Say Hello →</a>
+      <div class="sidequest-divider" style="margin-top: 40px;">
+        <span>explore life beyond the code</span>
+      </div>
+      <div style="margin-top: 20px;">
+        <a class="btn btn-outline" href="sidequest.html">📷  Sidequest →</a>
+      </div>
     </section>
 
     <footer><span>© 2026 Sudip Shrestha · Mississauga, ON, Canada</span></footer>
