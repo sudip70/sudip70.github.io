@@ -4,10 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Education — Sudip Shrestha</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
   <style>
     .page-header { max-width: var(--max); margin: 0 auto; padding: 80px 40px 60px; }
+
+    .edu-section { max-width: var(--max); margin: 0 auto; padding: 0 40px 80px; }
     .edu-grid { display: grid; gap: 24px; margin-top: 40px; }
     .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 36px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; transition: border-color 0.25s, transform 0.25s; }
     .edu-card:hover { border-color: rgba(200,240,96,0.25); transform: translateY(-2px); }
@@ -20,13 +23,14 @@
     .edu-card p { font-size: 14px; color: var(--muted); max-width: 540px; margin-bottom: 16px; }
     .edu-tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
+    .course-section { max-width: var(--max); margin: 0 auto; padding: 60px 40px 80px; }
     .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 32px; }
     .course-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; transition: border-color 0.2s; }
     .course-card:hover { border-color: rgba(96,208,240,0.25); }
     .course-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); margin-top: 8px; flex-shrink: 0; }
     .course-card span { font-size: 14px; color: var(--text); line-height: 1.4; }
 
-    /* Research section */
+    .research-section { max-width: var(--max); margin: 0 auto; padding: 60px 40px 80px; }
     .research-grid { display: grid; gap: 16px; margin-top: 32px; }
     .research-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 28px 32px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; transition: border-color 0.2s, transform 0.2s; }
     .research-card:hover { border-color: rgba(200,240,96,0.25); transform: translateY(-2px); }
@@ -38,7 +42,11 @@
     .pub-link:hover { background: rgba(200,240,96,0.08); border-color: rgba(200,240,96,0.5); }
     .pub-link svg { flex-shrink: 0; }
 
-    @media (max-width: 768px) { .page-header { padding-left: 20px; padding-right: 20px; } .edu-card { grid-template-columns: 1fr; } .research-card { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .page-header, .edu-section, .course-section, .research-section { padding-left: 20px; padding-right: 20px; }
+      .edu-card { grid-template-columns: 1fr; }
+      .research-card { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -67,7 +75,7 @@
     </div>
 
     <!-- DEGREES -->
-    <section>
+    <div class="edu-section">
       <div class="edu-grid">
 
         <div class="edu-card fade-up d1">
@@ -109,12 +117,12 @@
         </div>
 
       </div>
-    </section>
+    </div>
 
     <hr class="divider" />
 
     <!-- COURSEWORK -->
-    <section>
+    <div class="course-section">
       <p class="section-label">Curriculum</p>
       <h2>Key Areas of Study</h2>
       <div class="course-grid">
@@ -129,12 +137,12 @@
         <div class="course-card fade-up d5"><div class="course-dot"></div><span>Natural Language Processing</span></div>
         <div class="course-card fade-up d5"><div class="course-dot"></div><span>Computer Networks & Security</span></div>
       </div>
-    </section>
+    </div>
 
     <hr class="divider" />
 
     <!-- RESEARCH & PUBLICATIONS -->
-    <section style="padding-bottom:80px;">
+    <div class="research-section">
       <p class="section-label">Research & Publications</p>
       <h2>Published Work</h2>
 
@@ -198,7 +206,7 @@
         </div>
 
       </div>
-    </section>
+    </div>
 
     <footer><span>© 2026 Sudip Shrestha · Mississauga, ON, Canada</span></footer>
   </div>
