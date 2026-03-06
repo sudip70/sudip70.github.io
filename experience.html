@@ -4,13 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experience — Sudip Shrestha</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
   <style>
     .page-header { max-width: var(--max); margin: 0 auto; padding: 80px 40px 60px; }
+
+    .timeline-section { max-width: var(--max); margin: 0 auto; padding: 0 40px 80px; }
     .timeline { position: relative; padding-left: 28px; }
     .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 1px; background: var(--border); }
     .timeline-item { position: relative; margin-bottom: 56px; }
+    .timeline-item:last-child { margin-bottom: 0; }
     .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(200,240,96,0.15); }
     .timeline-item.blue-dot::before { background: var(--accent2); box-shadow: 0 0 0 3px rgba(96,208,240,0.15); }
     .timeline-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -25,7 +29,7 @@
     .bullet-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
     .skill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 
-    .skills-section { max-width: var(--max); margin: 0 auto; padding: 0 40px 80px; }
+    .skills-section { max-width: var(--max); margin: 0 auto; padding: 60px 40px 80px; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; margin-top: 32px; }
     .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 22px; }
     .skill-group h4 { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
@@ -33,7 +37,9 @@
     .skill-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .skill-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
 
-    @media (max-width: 768px) { .page-header, .skills-section { padding-left: 20px; padding-right: 20px; } }
+    @media (max-width: 768px) {
+      .page-header, .timeline-section, .skills-section { padding-left: 20px; padding-right: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -61,7 +67,7 @@
       </p>
     </div>
 
-    <section>
+    <div class="timeline-section">
       <div class="timeline">
 
         <!-- Outlier / Scale AI -->
@@ -136,7 +142,7 @@
         </div>
 
       </div>
-    </section>
+    </div>
 
     <hr class="divider" />
 
