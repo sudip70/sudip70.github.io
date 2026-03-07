@@ -19,7 +19,9 @@
     .edu-meta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .edu-card h3 { font-size: 20px; margin-bottom: 4px; }
     .edu-school { font-size: 15px; color: var(--muted); margin-bottom: 4px; }
-    .edu-location { font-size: 13px; color: var(--muted); margin-bottom: 16px; opacity: 0.7; }
+    .edu-location { font-size: 13px; color: var(--muted); margin-bottom: 8px; opacity: 0.7; }
+    .edu-honours { display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--accent); background: rgba(200,240,96,0.08); border: 1px solid rgba(200,240,96,0.2); border-radius: 6px; padding: 4px 10px; margin-bottom: 16px; }
+    .edu-honours::before { content: '★'; font-size: 10px; }
     .edu-card p { font-size: 14px; color: var(--muted); max-width: 540px; margin-bottom: 16px; }
     .edu-tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
@@ -104,12 +106,13 @@
             <h3>BSc in Information Technology</h3>
             <div class="edu-school">Islington College (London Metropolitan University)</div>
             <div class="edu-location">Kathmandu, Bagmati, Nepal</div>
+            <div class="edu-honours">First Class Honours</div>
             <p>
               Undergraduate degree covering software engineering, networking, databases, web development, and programming fundamentals. Awarded by London Metropolitan University through Islington College.
             </p>
             <div class="edu-tag-row">
               <span class="tag">Software Engineering</span>
-              <span class="tag neutral">Databases</span>
+              <span class="tag blue">Databases</span>
               <span class="tag neutral">Networking</span>
               <span class="tag neutral">Python / C#</span>
             </div>
@@ -127,13 +130,15 @@
       <h2>Key Areas of Study</h2>
       <div class="course-grid">
         <div class="course-card fade-up d1"><div class="course-dot"></div><span>Big Data Engineering</span></div>
+        <div class="course-card fade-up d1"><div class="course-dot"></div><span>Data Science & Analytics</span></div>
         <div class="course-card fade-up d1"><div class="course-dot"></div><span>Machine Learning & AI</span></div>
         <div class="course-card fade-up d2"><div class="course-dot"></div><span>Cloud Platforms (GCP, AWS, Azure)</span></div>
         <div class="course-card fade-up d2"><div class="course-dot"></div><span>Data Warehousing & ETL</span></div>
         <div class="course-card fade-up d3"><div class="course-dot"></div><span>Statistical Analysis</span></div>
         <div class="course-card fade-up d3"><div class="course-dot"></div><span>Data Visualization & BI</span></div>
         <div class="course-card fade-up d4"><div class="course-dot"></div><span>Database Management Systems</span></div>
-        <div class="course-card fade-up d4"><div class="course-dot"></div><span>Software Engineering Principles</span></div>
+        <div class="course-card fade-up d4"><div class="course-dot"></div><span>Software Engineering</span></div>
+        <div class="course-card fade-up d5"><div class="course-dot"></div><span>Web Development</span></div>
         <div class="course-card fade-up d5"><div class="course-dot"></div><span>Natural Language Processing</span></div>
         <div class="course-card fade-up d5"><div class="course-dot"></div><span>Computer Networks & Security</span></div>
       </div>
@@ -174,13 +179,13 @@
             <h4>A Common Control and Readout Software for Different X-ray Detector Systems</h4>
             <p>Presented as a poster at the NoBugs Conference 2022 at Paul Scherrer Institute, Switzerland. Covered the development of unified control software for multiple X-ray photon detector systems used in advanced physics research.</p>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="pub-link" href="https://github.com/slsdetectorgroup/pyctbgui" target="_blank">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                GitHub Repo
-              </a>
               <a class="pub-link" href="YOUR_NOBUGS_POSTER_LINK_HERE" target="_blank" id="nobugs-link">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 View Poster
+              </a>
+              <a class="pub-link" href="https://github.com/slsdetectorgroup/pyctbgui" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub Repo
               </a>
             </div>
           </div>
