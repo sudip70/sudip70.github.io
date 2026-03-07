@@ -19,7 +19,8 @@
     .timeline-item.blue-dot::before { background: var(--accent2); box-shadow: 0 0 0 3px rgba(96,208,240,0.15); }
     .timeline-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
     .timeline-date { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
-    .timeline-company { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.04em; }
+    .timeline-company { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.04em; text-decoration: none; transition: opacity 0.2s; }
+    .timeline-company:hover { opacity: 0.75; }
     .timeline-company.blue { color: var(--accent2); }
     .timeline-item h3 { margin-bottom: 6px; }
     .timeline-loc { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
@@ -63,7 +64,7 @@
       <p class="section-label fade-up d1">Career</p>
       <h1 class="fade-up d2">Experience</h1>
       <p style="color:var(--muted); max-width:480px; margin-top:16px; font-size:18px;" class="fade-up d3">
-        From Swiss research labs to Toronto data teams — my professional journey.
+        From Swiss research labs to Toronto data teams — and everywhere in between.
       </p>
     </div>
 
@@ -73,8 +74,8 @@
         <!-- Outlier / Scale AI -->
         <div class="timeline-item fade-up d1">
           <div class="timeline-meta">
-            <span class="timeline-company">Outlier (Scale AI)</span>
-            <span class="timeline-date">Nov 2025 – Present · Remote</span>
+            <a class="timeline-company" href="https://outlier.ai" target="_blank">Outlier (Scale AI)</a>
+            <span class="timeline-date">Nov 2025 – Present</span>
           </div>
           <h3>AI Data Quality Analyst — Contract</h3>
           <div class="timeline-loc">Remote</div>
@@ -88,7 +89,7 @@
           <div class="skill-row">
             <span class="tag">NLP</span>
             <span class="tag">Computer Vision</span>
-            <span class="tag neutral">JSON</span>
+            <span class="tag blue">JSON</span>
             <span class="tag neutral">Data Annotation</span>
             <span class="tag neutral">QA</span>
           </div>
@@ -97,8 +98,8 @@
         <!-- Hal Group -->
         <div class="timeline-item blue-dot fade-up d2">
           <div class="timeline-meta">
-            <span class="timeline-company blue">Hal Group Inc</span>
-            <span class="timeline-date">Sep 2025 – Dec 2025 · Vaughan, Ontario</span>
+            <a class="timeline-company blue" href="https://www.halgroup.ca" target="_blank">Hal Group Inc.</a>
+            <span class="timeline-date">Sep 2025 – Dec 2025</span>
           </div>
           <h3>Data and Reporting Analyst — Co-Op</h3>
           <div class="timeline-loc">Vaughan, Ontario, Canada</div>
@@ -120,11 +121,11 @@
         <!-- PSI -->
         <div class="timeline-item fade-up d3">
           <div class="timeline-meta">
-            <span class="timeline-company">Paul Scherrer Institute (PSI)</span>
-            <span class="timeline-date">Jul 2022 – Sep 2022 · Villigen, Switzerland</span>
+            <a class="timeline-company" href="https://www.psi.ch" target="_blank">Paul Scherrer Institute (PSI)</a>
+            <span class="timeline-date">Jul 2022 – Sep 2022</span>
           </div>
           <h3>Software Engineer Intern</h3>
-          <div class="timeline-loc">Villigen, Switzerland</div>
+          <div class="timeline-loc">Villigen, Aarau, Switzerland</div>
           <ul class="bullet-list">
             <li>Developed efficient software for X-Ray and Photon detectors, enhancing hardware-software integration and real-time data acquisition.</li>
             <li>Optimized legacy Linux-based systems and chip test boards, boosting throughput by approximately 40%.</li>
@@ -134,10 +135,35 @@
           </ul>
           <div class="skill-row">
             <span class="tag">Python</span>
-            <span class="tag neutral">PyQt</span>
-            <span class="tag neutral">Matplotlib</span>
+            <span class="tag">PyQt</span>
+            <span class="tag blue">Matplotlib</span>
             <span class="tag neutral">Plotly</span>
             <span class="tag neutral">Linux</span>
+          </div>
+        </div>
+
+        <!-- Kinniho -->
+        <div class="timeline-item blue-dot fade-up d4">
+          <div class="timeline-meta">
+            <a class="timeline-company blue" target="_blank">Kinniho Pvt. Ltd.</a>
+            <span class="timeline-date">Oct 2021 – Jan 2022</span>
+          </div>
+          <h3>IT Intern</h3>
+          <div class="timeline-loc">Kathmandu, Nepal</div>
+          <ul class="bullet-list">
+            <li>Provided technical support for the company's e-commerce platform, troubleshooting issues related to product listings, order processing, and website performance.</li>
+            <li>Assisted in maintaining and updating product data across the platform, ensuring accuracy and consistency of inventory records.</li>
+            <li>Supported the IT team in diagnosing and resolving hardware, software, and network issues across office systems.</li>
+            <li>Monitored website uptime and flagged performance issues, coordinating with the development team for timely resolution.</li>
+            <li>Helped document internal IT processes and contributed to improving operational workflows for the e-commerce backend.</li>
+          </ul>
+          <div class="skill-row">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag blue">JavaScript</span>
+            <span class="tag neutral">Technical Support</span>
+            <span class="tag neutral">E-commerce</span>
+            <span class="tag neutral">Documentation</span>
           </div>
         </div>
 
@@ -152,50 +178,33 @@
       <h2>Skills & Technologies</h2>
 
       <div class="skills-grid">
+
         <div class="skill-group fade-up d1">
           <h4>Programming & Data</h4>
           <div class="skill-items">
             <div class="skill-item">Python</div>
-            <div class="skill-item">SQL</div>
+            <div class="skill-item">SQL (MySQL · PostgreSQL)</div>
             <div class="skill-item">C#</div>
+            <div class="skill-item">ETL</div>
+            <div class="skill-item">Pandas</div>
+            <div class="skill-item">NumPy</div>
             <div class="skill-item">Shell Scripting</div>
           </div>
         </div>
 
         <div class="skill-group fade-up d2">
-          <h4>ML & Analytics</h4>
+          <h4>ML & AI</h4>
           <div class="skill-items">
+            <div class="skill-item">Deep Learning</div>
             <div class="skill-item">Reinforcement Learning</div>
-            <div class="skill-item">Statistical Analysis</div>
-            <div class="skill-item">Predictive Analytics</div>
+            <div class="skill-item">Natural Language Processing</div>
+            <div class="skill-item">Computer Vision</div>
             <div class="skill-item">Feature Engineering</div>
-            <div class="skill-item">ETL</div>
+            <div class="skill-item">TF-IDF Vectorization</div>
           </div>
         </div>
 
         <div class="skill-group fade-up d3">
-          <h4>Visualization & BI</h4>
-          <div class="skill-items">
-            <div class="skill-item">Power BI</div>
-            <div class="skill-item">Tableau</div>
-            <div class="skill-item">Streamlit</div>
-            <div class="skill-item">Matplotlib</div>
-            <div class="skill-item">Seaborn</div>
-          </div>
-        </div>
-
-        <div class="skill-group fade-up d4">
-          <h4>Big Data & Cloud</h4>
-          <div class="skill-items">
-            <div class="skill-item">GCP</div>
-            <div class="skill-item">AWS</div>
-            <div class="skill-item">Azure</div>
-            <div class="skill-item">Spark</div>
-            <div class="skill-item">Hugging Face</div>
-          </div>
-        </div>
-
-        <div class="skill-group fade-up d5">
           <h4>Frameworks & Tools</h4>
           <div class="skill-items">
             <div class="skill-item">PyTorch</div>
@@ -203,19 +212,55 @@
             <div class="skill-item">Scikit-learn</div>
             <div class="skill-item">OpenCV</div>
             <div class="skill-item">Flask</div>
+            <div class="skill-item">PyQt</div>
+            <div class="skill-item">Hugging Face</div>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up d4">
+          <h4>Visualization & BI</h4>
+          <div class="skill-items">
+            <div class="skill-item">Power BI</div>
+            <div class="skill-item">Tableau</div>
+            <div class="skill-item">Streamlit</div>
+            <div class="skill-item">Matplotlib</div>
+            <div class="skill-item">Plotly</div>
+            <div class="skill-item">Seaborn</div>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up d5">
+          <h4>Big Data & Cloud</h4>
+          <div class="skill-items">
+            <div class="skill-item">GCP</div>
+            <div class="skill-item">AWS</div>
+            <div class="skill-item">Azure</div>
+            <div class="skill-item">Supabase</div>
+            <div class="skill-item">Spark</div>
+            <div class="skill-item">Hadoop</div>
           </div>
         </div>
 
         <div class="skill-group fade-up d1">
+          <h4>Mobile & Backend</h4>
+          <div class="skill-items">
+            <div class="skill-item">Flutter / Dart</div>
+            <div class="skill-item">REST API</div>
+            <div class="skill-item">SQLite</div>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up d2">
           <h4>Dev Tools</h4>
           <div class="skill-items">
             <div class="skill-item">Git / GitHub</div>
             <div class="skill-item">Jupyter</div>
             <div class="skill-item">VS Code</div>
             <div class="skill-item">Linux</div>
-            <div class="skill-item">Excel</div>
+            <div class="skill-item">Docker</div>
           </div>
         </div>
+
       </div>
     </div>
 
