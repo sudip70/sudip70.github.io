@@ -39,6 +39,7 @@
     .badge-startup { background: rgba(200,240,96,0.1); color: var(--accent); border: 1px solid rgba(200,240,96,0.2); }
     .badge-nasa { background: rgba(96,208,240,0.1); color: var(--accent2); border: 1px solid rgba(96,208,240,0.2); }
     .badge-oss { background: rgba(255,200,96,0.1); color: #f0d060; border: 1px solid rgba(255,200,96,0.2); }
+    .badge-wip { background: rgba(200,240,96,0.07); color: var(--accent); border: 1px solid rgba(200,240,96,0.15); }
 
     @media (max-width: 768px) { .page-header { padding-left: 20px; padding-right: 20px; } .projects-grid { grid-template-columns: 1fr; } }
   </style>
@@ -76,86 +77,146 @@
         <button class="filter-btn" onclick="filterProjects('cloud', this)">Cloud</button>
         <button class="filter-btn" onclick="filterProjects('cv', this)">Computer Vision</button>
         <button class="filter-btn" onclick="filterProjects('research', this)">Research</button>
+        <button class="filter-btn" onclick="filterProjects('dataviz', this)">Data Visualization</button>
       </div>
 
       <div class="projects-grid" id="projects-grid">
 
-        <!-- MarketMind -->
+        <!-- 1. MarketMind -->
         <div class="proj-card fade-up d1" data-tags="ml cloud">
           <span class="badge badge-startup">🚀 Startup</span>
           <div class="proj-header">
             <div class="proj-icon-lg">📈</div>
           </div>
           <h3>MarketMind</h3>
-          <p>Portfolio allocation system using Multi-Agent Reinforcement Learning. Leading development of individual agent models and meta-models. Designing financial data pipelines with historical trading data (stocks, crypto, ETFs) from 2010–present. Integrates with Alpaca paper trading.</p>
+          <p>Portfolio allocation system using Multi-Agent Reinforcement Learning. Leading development of individual agent models and a meta-model that coordinates across agents to optimise decisions. Designing financial data pipelines covering stocks, crypto, and ETFs from 2010 to present. Integrated with Alpaca for live paper trading simulation.</p>
           <div style="font-size:12px; color:var(--muted); font-family:'DM Mono',monospace;">Advised by Prof. Bhavik Gandhi, Lambton College</div>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">PyTorch</span><span class="t">Azure</span><span class="t">Supabase</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">PPO / SAC</span>
           </div>
         </div>
 
-        <!-- Plant Disease -->
-        <div class="proj-card fade-up d2" data-tags="ml cv">
-          <div class="proj-header">
-            <div class="proj-icon-lg">🌿</div>
-            <div class="proj-links">
-              <a href="https://huggingface.co" target="_blank" title="Hugging Face">🤗</a>
-            </div>
-          </div>
-          <h3>Plant Disease Detection</h3>
-          <p>Pre-processed 10K+ mango leaf images using OpenCV. Applied augmentation (resize, normalize, rotate) for generalization. Built and trained a custom deep learning CNN achieving ~97% accuracy on validation data. Deployed via Flask endpoint and Hugging Face Spaces with an accessible Streamlit UI.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">PyTorch</span><span class="t">TensorFlow</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">SQLite</span>
-          </div>
-        </div>
-
-        <!-- Healthcare NLP -->
-        <div class="proj-card fade-up d3" data-tags="nlp cloud ml">
-          <div class="proj-header">
-            <div class="proj-icon-lg blue">🏥</div>
-            <div class="proj-links">
-              <a href="https://huggingface.co" target="_blank" title="Hugging Face">🤗</a>
-            </div>
-          </div>
-          <h3>Healthcare Sentiment NLP</h3>
-          <p>Collected and processed 1.6M+ unstructured healthcare reviews — data cleaning, transformation, and modeling. Built scalable GCP workflows for data ingestion and model training. Deployed NLP pipeline and UI via Streamlit for real-time sentiment tracking with visualization dashboards.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">GCP</span><span class="t">Scikit-learn</span><span class="t">Pandas</span><span class="t">NLP</span><span class="t">Streamlit</span><span class="t">Hugging Face</span>
-          </div>
-        </div>
-
-        <!-- Eclipse Mega Movie -->
-        <div class="proj-card fade-up d4" data-tags="research cv">
+        <!-- 2. Eclipse Mega Movie -->
+        <div class="proj-card fade-up d2" data-tags="research cv">
           <span class="badge badge-nasa">🛸 NASA</span>
           <div class="proj-header">
             <div class="proj-icon-lg">🌑</div>
           </div>
           <h3>Eclipse Mega Movie 2024</h3>
-          <p>Contributed to a NASA-supported citizen science initiative by analyzing solar eclipse data using Python and OpenCV. Developed a specialized image alignment tool for large-scale imagery processing. Collaborated across a multidisciplinary team on data preparation and project goals.</p>
+          <p>Contributed to a NASA-supported citizen science initiative analysing solar eclipse imagery at scale. Developed a specialised image alignment tool using OpenCV for large-scale astronomical image processing. Collaborated across a multidisciplinary team on data preparation and scientific workflows.</p>
           <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--muted);">Dec 2024 – Dec 2025</div>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">OpenCV</span><span class="t">Image Processing</span>
           </div>
         </div>
 
-        <!-- PyCTBGUI -->
-        <div class="proj-card fade-up d5" data-tags="research">
+        <!-- 3. PyCTBGUI -->
+        <div class="proj-card fade-up d3" data-tags="research">
           <span class="badge badge-oss">Open Source</span>
           <div class="proj-header">
             <div class="proj-icon-lg">🔬</div>
-            <div class="proj-links">
+            <div class="proj-links" style="margin-top: 18px;">
               <a href="https://github.com/slsdetectorgroup/pyctbgui" target="_blank" title="GitHub">⌥</a>
             </div>
           </div>
           <h3>PyCTBGUI — PSI</h3>
-          <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute. Enables researchers to configure and control X-ray and photon detector hardware with live signal visualization. Presented as a poster at NoBugs Conference 2022, Switzerland.</p>
+          <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute (PSI). Enables researchers to configure and control X-ray and photon detector hardware with live signal visualisation. Presented as a poster at NoBugs Conference 2022, Switzerland — publicly used by researchers at PSI.</p>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">PyQt</span><span class="t">Matplotlib</span><span class="t">Plotly</span><span class="t">Linux</span>
           </div>
         </div>
 
-        <!-- Social Dashboard -->
-        <div class="proj-card fade-up d1" data-tags="ml">
+        <!-- 4. Plant Disease Detection -->
+        <div class="proj-card fade-up d4" data-tags="ml cv">
+          <div class="proj-header">
+            <div class="proj-icon-lg">🌿</div>
+            <div class="proj-links">
+              <a href="https://github.com/sudip70/FarmAI" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>Plant Disease Detection</h3>
+          <p>Pre-processed 10K+ mango leaf images from Dhaka University Agriculture Department using OpenCV, with augmentation (resize, normalise, rotate) for generalisation. Built and trained a custom CNN achieving ~97% accuracy on validation data. Deployed via Flask and Hugging Face Spaces with an accessible Streamlit UI — built for use in remote farming communities.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">PyTorch</span><span class="t">TensorFlow</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">SQLite</span>
+          </div>
+
+        </div>
+
+        <!-- 5. Healthcare Sentiment NLP -->
+        <div class="proj-card fade-up d5" data-tags="nlp cloud ml">
+          <div class="proj-header">
+            <div class="proj-icon-lg blue">🏥</div>
+            <div class="proj-links">
+              <a href="https://github.com/sudip70/Sentiment_Project" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>Healthcare Sentiment NLP</h3>
+          <p>Collected and processed 1.6M+ unstructured healthcare reviews — cleaning, tokenisation, lemmatisation, and TF-IDF vectorisation. Built scalable GCP workflows for data ingestion and model training. Deployed a real-time NLP pipeline and Streamlit UI with live sentiment tracking and visualisation dashboards.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">GCP</span><span class="t">Scikit-learn</span><span class="t">Pandas</span><span class="t">NLP</span><span class="t">Streamlit</span><span class="t">Hugging Face</span>
+          </div>
+        </div>
+
+        <!-- 6. Article Summarization -->
+        <div class="proj-card fade-up d1" data-tags="nlp ml">
+          <div class="proj-header">
+            <div class="proj-icon-lg">📝</div>
+            <div class="proj-links">
+              <a href="https://textsummarynn.streamlit.app" target="_blank" title="Live App">↗</a>
+              <a href="https://github.com/sudip70/text_summarize_RNN" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>Article Summarization App</h3>
+          <p>Web app that condenses long articles into concise summaries using five models — LSTM (RNN), Logistic Regression, Linear Regression, and two Decision Tree variants — trained on the CNN/DailyMail dataset. Users choose the model and summary length. Personally responsible for the LSTM model, output merging, and full deployment.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">TensorFlow</span><span class="t">Scikit-learn</span><span class="t">LSTM</span><span class="t">TF-IDF</span><span class="t">Streamlit</span>
+          </div>
+        </div>
+
+        <!-- 7. Movie Recommendation -->
+        <div class="proj-card fade-up d2" data-tags="ml">
+          <div class="proj-header">
+            <div class="proj-icon-lg">🎬</div>
+            <div class="proj-links">
+              <a href="https://github.com/sudip70/Movie-Recommendation" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>Movie Recommendation System</h3>
+          <p>Intelligent recommendation engine combining three ML approaches — KNN, Content-Based Filtering, and User-Based Collaborative Filtering — across a dataset of 500K+ entries. Fuses outputs from all three models to generate 5 curated, bias-reduced recommendations per user based on real-time input.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">Scikit-learn</span><span class="t">KNN</span><span class="t">Collaborative Filtering</span><span class="t">Pandas</span><span class="t">Jupyter</span>
+          </div>
+        </div>
+
+        <!-- 8. F1 Data Analysis -->
+        <div class="proj-card fade-up d3" data-tags="dataviz cloud">
+          <div class="proj-header">
+            <div class="proj-icon-lg">🏎️</div>
+            <div class="proj-links">
+              <a href="https://github.com/sudip70/F1-Data-Analysis" target="_blank" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>F1 Data Analysis</h3>
+          <p>Deep-dive analysis and visualisation of Formula 1 racing history from the sport's very first season to present day. Extracted key metrics including driver standings, constructor performance, lap times, race wins, and championship trends. Dataset stored and managed on GCP for scalable access.</p>
+          <div class="proj-tags">
+            <span class="t">Python</span><span class="t">Matplotlib</span><span class="t">Plotly</span><span class="t">GCP</span><span class="t">Pandas</span>
+          </div>
+        </div>
+
+        <!-- 9. Medics -->
+        <div class="proj-card fade-up d4" data-tags="">
+          <div class="proj-header">
+            <div class="proj-icon-lg blue">💊</div>
+          </div>
+          <h3>Medics</h3>
+          <p>Full-stack Android medical companion app providing instant access to health information and emergency resources. Features medical condition search with descriptions, symptoms, prevention, and cures. Includes location-based hospital, doctor, and ambulance finder. Built a community-driven blood bank where users can find or donate blood by type.</p>
+          <div class="proj-tags">
+            <span class="t">Flutter</span><span class="t">Flask</span><span class="t">MySQL</span><span class="t">Android</span><span class="t">REST API</span>
+          </div>
+        </div>
+
+        <!-- 10. Social Media Dashboard -->
+        <div class="proj-card fade-up d5" data-tags="dataviz">
           <div class="proj-header">
             <div class="proj-icon-lg blue">📊</div>
             <div class="proj-links">
@@ -163,7 +224,7 @@
             </div>
           </div>
           <h3>Social Media Dashboard</h3>
-          <p>Interactive analytics dashboard visualizing social media engagement metrics, follower trends, and content performance. Responsive data-driven design built for real-time insight delivery.</p>
+          <p>Interactive analytics dashboard visualising social media engagement metrics, follower trends, and content performance. Responsive, data-driven design built for real-time insight delivery.</p>
           <div class="proj-tags">
             <span class="t">HTML</span><span class="t">CSS</span><span class="t">JavaScript</span><span class="t">Data Viz</span>
           </div>
