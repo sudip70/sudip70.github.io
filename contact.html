@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Sudip Shrestha</title>
+  <title>Contact — Sudip Shrestha</title>
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
 </head>
 <body>
+  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <div class="nav-drawer-close">
+      <span>Navigation</span>
+      <button onclick="closeDrawer()" aria-label="Close menu">&#x2715;</button>
+    </div>
+    <ul class="nav-drawer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="sidequest.html">Sidequest</a></li>
+    </ul>
+  </div>
+
   <nav>
     <div class="nav-inner">
       <a class="nav-logo" href="index.html">Sudip<span>.</span></a>
@@ -21,6 +37,9 @@
         <li><a href="sidequest.html">Sidequest</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+      <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+        <span class="hamburger"></span>
+      </button>
     </div>
   </nav>
 
@@ -37,19 +56,21 @@
       <div class="contact-info fade-up d1">
         <h2>Let's work<br /><em class="accent-em">together</em></h2>
         <p>
-          I'm currently open to new opportunities in data analytics, machine learning, and software engineering. Feel free to reach out through any channel below — I typically respond within 24 hours.
+          I'm currently open to new opportunities in data analytics, machine learning,
+          and software engineering. Feel free to reach out through any channel below —
+          I typically respond within 24 hours.
         </p>
 
         <div class="contact-items">
           <a class="contact-item" href="mailto:sudipshrestha.ca@gmail.com">
-            <div class="contact-item-icon">✉</div>
+            <div class="contact-item-icon">&#x2709;</div>
             <div class="contact-item-text">
               <span class="contact-item-label">Email</span>
               <span class="contact-item-value">sudipshrestha.ca@gmail.com</span>
             </div>
           </a>
 
-          <a class="contact-item" href="https://www.linkedin.com/in/sudipshrestha-58/" target="_blank">
+          <a class="contact-item" href="https://www.linkedin.com/in/sudipshrestha-58/" target="_blank" rel="noopener">
             <div class="contact-item-icon blue contact-item-icon--li">in</div>
             <div class="contact-item-text">
               <span class="contact-item-label">LinkedIn</span>
@@ -57,8 +78,8 @@
             </div>
           </a>
 
-          <a class="contact-item" href="https://github.com/sudip70" target="_blank">
-            <div class="contact-item-icon contact-item-icon--lg">⌥</div>
+          <a class="contact-item" href="https://github.com/sudip70" target="_blank" rel="noopener">
+            <div class="contact-item-icon contact-item-icon--lg">&#x2325;</div>
             <div class="contact-item-text">
               <span class="contact-item-label">GitHub</span>
               <span class="contact-item-value">github.com/sudip70</span>
@@ -66,7 +87,7 @@
           </a>
 
           <div class="contact-item contact-item--static">
-            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-icon">&#x1F4CD;</div>
             <div class="contact-item-text">
               <span class="contact-item-label">Location</span>
               <span class="contact-item-value">Mississauga, ON, Canada</span>
@@ -83,27 +104,27 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>First name</label>
+              <label for="fname">First name</label>
               <input type="text" id="fname" placeholder="Jane" oninput="clearError('fname')" />
               <span class="field-error-msg" id="fname-error">First name is required</span>
             </div>
             <div class="form-group">
-              <label>Last name</label>
+              <label for="lname">Last name</label>
               <input type="text" id="lname" placeholder="Doe" oninput="clearError('lname')" />
               <span class="field-error-msg" id="lname-error">Last name is required</span>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Email</label>
+            <label for="email">Email</label>
             <input type="email" id="email" placeholder="jane@example.com" oninput="clearError('email')" />
             <span class="field-error-msg" id="email-error">A valid email is required</span>
           </div>
 
           <div class="form-group">
-            <label>Subject</label>
+            <label for="subject">Subject</label>
             <select id="subject" onchange="clearError('subject')">
-              <option value="">Select a topic…</option>
+              <option value="">Select a topic&#x2026;</option>
               <option>Job opportunity</option>
               <option>Project collaboration</option>
               <option>Research inquiry</option>
@@ -113,27 +134,30 @@
           </div>
 
           <div class="form-group">
-            <label>Message <span class="form-optional">(optional)</span></label>
-            <textarea id="message" placeholder="Tell me about the opportunity or project…"></textarea>
+            <label for="message">Message <span class="form-optional">(optional)</span></label>
+            <textarea id="message" placeholder="Tell me about the opportunity or project&#x2026;"></textarea>
           </div>
 
           <button class="btn btn-primary form-submit" onclick="handleSubmit()">
-            Send Message →
+            Send Message &#x2192;
           </button>
           <div class="form-error" id="form-error">
-            Something went wrong — please try emailing me directly at sudipshrestha.ca@gmail.com
+            Something went wrong &#x2014; please try emailing me directly at sudipshrestha.ca@gmail.com
           </div>
         </div>
 
         <div class="form-success" id="form-success">
-          <div class="success-icon">🎉</div>
+          <div class="success-icon">&#x1F389;</div>
           <h3>Message sent!</h3>
           <p>Thanks for reaching out, I'll get back to you shortly.</p>
         </div>
       </div>
+
     </div>
 
-    <footer><span>© 2026 Sudip Shrestha · Mississauga, ON, Canada · sudipshrestha.ca@gmail.com</span></footer>
+    <footer>
+      <span>&#169; 2026 Sudip Shrestha &#xB7; Mississauga, ON, Canada &#xB7; sudipshrestha.ca@gmail.com</span>
+    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -171,32 +195,32 @@
 
       let valid = true;
 
-      if (!fname)               { setError('fname',   true); valid = false; } else { setError('fname',   false); }
-      if (!lname)               { setError('lname',   true); valid = false; } else { setError('lname',   false); }
-      if (!isValidEmail(email)) { setError('email',   true); valid = false; } else { setError('email',   false); }
-      if (!subject)             { setError('subject', true); valid = false; } else { setError('subject', false); }
+      if (!fname)               { setError('fname',   true);  valid = false; } else { setError('fname',   false); }
+      if (!lname)               { setError('lname',   true);  valid = false; } else { setError('lname',   false); }
+      if (!isValidEmail(email)) { setError('email',   true);  valid = false; } else { setError('email',   false); }
+      if (!subject)             { setError('subject', true);  valid = false; } else { setError('subject', false); }
 
       if (!valid) return;
 
       const btn = document.querySelector('.form-submit');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
+      btn.disabled    = true;
+      btn.textContent = 'Sending\u2026';
 
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name:  `${fname} ${lname}`.trim(),
+        from_name:  (fname + ' ' + lname).trim(),
         from_email: email,
         subject:    subject,
         message:    message || '(No message provided)',
         reply_to:   email,
       })
-      .then(() => {
-        document.getElementById('form-wrap').style.display = 'none';
+      .then(function () {
+        document.getElementById('form-wrap').style.display    = 'none';
         document.getElementById('form-success').style.display = 'block';
       })
-      .catch((err) => {
+      .catch(function (err) {
         console.error('EmailJS error:', err);
-        btn.disabled = false;
-        btn.textContent = 'Send Message →';
+        btn.disabled    = false;
+        btn.textContent = 'Send Message \u2192';
         document.getElementById('form-error').style.display = 'block';
       });
     }

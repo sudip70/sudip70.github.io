@@ -36,7 +36,40 @@ function updateToggleIcon(theme) {
     </svg>`;
 }
 
+// ── MOBILE DRAWER ──────────────────────────────────────────────
+function toggleDrawer() {
+  const drawer   = document.getElementById('nav-drawer');
+  const backdrop = document.getElementById('nav-backdrop');
+  const btn      = document.getElementById('nav-menu-btn');
+  if (!drawer) return;
+  const open = drawer.classList.toggle('open');
+  backdrop.style.display = open ? 'block' : 'none';
+  btn.classList.toggle('open', open);
+}
+
+function closeDrawer() {
+  const drawer   = document.getElementById('nav-drawer');
+  const backdrop = document.getElementById('nav-backdrop');
+  const btn      = document.getElementById('nav-menu-btn');
+  if (!drawer) return;
+  drawer.classList.remove('open');
+  backdrop.style.display = 'none';
+  btn.classList.remove('open');
+}
+
+// ── DOMContentLoaded: icons + close drawer on nav link click ──
 document.addEventListener('DOMContentLoaded', () => {
+  // Restore theme icon
   const current = document.documentElement.getAttribute('data-theme') || 'dark';
   updateToggleIcon(current);
+
+  // Close drawer when any drawer link is tapped
+  document.querySelectorAll('.nav-drawer-links a').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+});
+
+// Close drawer on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeDrawer();
 });
