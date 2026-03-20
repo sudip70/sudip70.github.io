@@ -328,13 +328,19 @@ footer {
   justify-content: center;
   flex-shrink: 0;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
-  margin-left: 8px;
 }
 
 .theme-toggle:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--surface);
+}
+
+/* Groups theme toggle + hamburger together on the right */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ── GRAIN OVERLAY ── */
@@ -1427,7 +1433,6 @@ body::before {
   justify-content: center;
   flex-shrink: 0;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
-  margin-left: 8px;
   flex-direction: column;
   gap: 5px;
   padding: 0;

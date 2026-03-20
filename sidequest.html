@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sidequest — Sudip Shrestha</title>
+  <title>Sidequest - Sudip Shrestha</title>
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
@@ -14,7 +14,6 @@
   <div class="nav-drawer" id="nav-drawer">
     <div class="nav-drawer-close">
       <span>Navigation</span>
-      <button onclick="closeDrawer()" aria-label="Close menu">✕</button>
     </div>
     <ul class="nav-drawer-links">
         <li><a href="index.html">Home</a></li>
@@ -36,10 +35,12 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="sidequest.html" class="active">Sidequest</a></li>
       </ul>
-      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-      <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
-        <span class="hamburger"></span>
-      </button>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+        <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -249,7 +250,7 @@
       </div><!-- /masonry -->
     </div>
 
-    <footer><span>© 2026 Sudip Shrestha · Mississauga, ON, Canada</span></footer>
+    <footer><span>&#169; 2026 Sudip Shrestha &#xB7; Mississauga, ON, Canada</span></footer>
   </div>
 
   <!-- ── LIGHTBOX ── -->
