@@ -26,7 +26,7 @@
   --surface: #ffffff;
   --surface2: #eaeae6;
   --border: rgba(0,0,0,0.09);
-  --accent: #4e8a00;
+  --accent: #5c9e00;
   --accent2: #0080a8;
   --text: #2e2e34;
   --muted: #6a6a76;
@@ -307,11 +307,41 @@ p { color: var(--text); }
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 40px;
-  text-align: center;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
   color: var(--muted);
   font-size: 13px;
   font-family: 'DM Mono', monospace;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 12px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.footer-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ── THEME TOGGLE ── */
@@ -362,13 +392,18 @@ body::before {
 
 .fade-up {
   opacity: 0;
+  transform: translateY(24px);
+}
+
+.fade-up.visible {
   animation: fadeUp 0.6s ease forwards;
 }
-.fade-up.d1 { animation-delay: 0.1s; }
-.fade-up.d2 { animation-delay: 0.2s; }
-.fade-up.d3 { animation-delay: 0.3s; }
-.fade-up.d4 { animation-delay: 0.4s; }
-.fade-up.d5 { animation-delay: 0.5s; }
+
+.fade-up.visible.d1 { animation-delay: 0.05s; }
+.fade-up.visible.d2 { animation-delay: 0.12s; }
+.fade-up.visible.d3 { animation-delay: 0.19s; }
+.fade-up.visible.d4 { animation-delay: 0.26s; }
+.fade-up.visible.d5 { animation-delay: 0.33s; }
 
 /* ── SHARED PAGE HEADER ── */
 .page-header {
@@ -1580,7 +1615,7 @@ body::before {
   nav { padding: 0 20px; }
   .hero, section { padding-left: 20px; padding-right: 20px; }
   .divider { margin: 0 20px; }
-  footer { padding: 32px 20px; }
+  footer { padding: 24px 20px; }
   .nav-links { display: none; }
   .nav-menu-btn { display: flex; }
   .about-split { grid-template-columns: 1fr; }
