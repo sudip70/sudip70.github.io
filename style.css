@@ -426,12 +426,12 @@ body::before {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 24px;
+  padding: 16px 20px;
 }
 
 .stat-num {
   font-family: 'DM Serif Display', serif;
-  font-size: 42px;
+  font-size: 32px;
   color: var(--heading);
   line-height: 1;
   margin-bottom: 4px;

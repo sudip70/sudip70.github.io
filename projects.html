@@ -48,7 +48,7 @@
     <div class="page-header">
       <p class="section-label fade-up d1">Portfolio</p>
       <h1 class="fade-up d2">Projects</h1>
-      <p class="page-subtitle fade-up d3">From multi-agent RL to NASA citizen science — things I've built and researched.</p>
+      <p class="page-subtitle fade-up d3">From multi-agent RL to NASA citizen science - things I've built and researched.</p>
     </div>
 
     <section class="flush-top">
@@ -78,7 +78,24 @@
           </div>
         </div>
 
-        <!-- 2. F1. Analytics -->
+        <!-- 2. Global Stats Monitor -->
+        <div class="proj-card fade-up d2" data-tags="dataviz">
+          <div class="proj-header">
+            <div class="proj-icon-lg">&#x1F30D;</div>
+            <div class="proj-links">
+              <a href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" title="Live Site">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>Global Stats Monitor</h3>
+          <p>Interactive 3D globe visualising global statistics sourced from Our World in Data - covering population, CO₂ emissions, HDI, deforestation, and energy consumption. Countries are colour-coded by metric and clickable, opening a side panel with per-country details. Includes an animated timeline that scrubs through historical data with live colour transitions, showing how the world has changed over time.</p>
+          <div class="proj-tags">
+            <span class="t">React</span><span class="t">Three.js</span><span class="t">HTML</span><span class="t">CSS</span><span class="t">Our World in Data</span>
+          </div>
+        </div>
+
+        <!-- 3. F1. Analytics -->
         <div class="proj-card fade-up d2" data-tags="dataviz cloud">
           <div class="proj-header">
             <div class="proj-icon-lg">&#x1F3CE;&#xFE0F;</div>
@@ -89,7 +106,7 @@
             </div>
           </div>
           <h3>F1. Analytics</h3>
-          <p>Browser-based dashboard making 26 years of Formula 1 data explorable in one place. Past seasons (2000–2025) load from Supabase in under a second; the current season fetches live from the Jolpica F1 API. Features race results, qualifying times, championship standings, grid-to-finish slope charts, and six interactive analytics charts — no account, no paywall.</p>
+          <p>Browser-based dashboard making 26 years of Formula 1 data explorable in one place. Past seasons (2000–2025) load from Supabase in under a second; the current season fetches live from the Jolpica F1 API. Features race results, qualifying times, championship standings, grid-to-finish slope charts, and six interactive analytics charts; no account, no paywall.</p>
           <div class="proj-tags">
             <span class="t">JavaScript</span><span class="t">Chart.js</span><span class="t">Supabase</span><span class="t">Jolpica API</span><span class="t">GitHub Pages</span>
           </div>
@@ -120,8 +137,8 @@
               </a>
             </div>
           </div>
-          <h3>PyCTBGUI — PSI</h3>
-          <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute (PSI). Enables researchers to configure and control X-ray and photon detector hardware with live signal visualisation. Presented as a poster at NoBugs Conference 2022, Switzerland — publicly used by researchers at PSI.</p>
+          <h3>PyCTBGUI - PSI</h3>
+          <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute (PSI). Enables researchers to configure and control X-ray and photon detector hardware with live signal visualisation. Presented as a poster at NoBugs Conference 2022, Switzerland - publicly used by researchers at PSI.</p>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">PyQt</span><span class="t">Matplotlib</span><span class="t">Plotly</span><span class="t">Linux</span>
           </div>
@@ -138,7 +155,7 @@
             </div>
           </div>
           <h3>Plant Disease Detection</h3>
-          <p>Pre-processed 10K+ mango leaf images from Dhaka University Agriculture Department using OpenCV, with augmentation (resize, normalise, rotate) for generalisation. Built and trained a custom CNN achieving ~97% accuracy on validation data. Deployed via Flask and Hugging Face Spaces with an accessible Streamlit UI — built for use in remote farming communities.</p>
+          <p>Pre-processed 10K+ mango leaf images from Dhaka University Agriculture Department using OpenCV, with augmentation (resize, normalise, rotate) for generalisation. Built and trained a custom CNN achieving ~97% accuracy on validation data. Deployed via Flask and Hugging Face Spaces with an accessible Streamlit UI - built for use in remote farming communities.</p>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">PyTorch</span><span class="t">TensorFlow</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">SQLite</span>
           </div>
@@ -155,7 +172,7 @@
             </div>
           </div>
           <h3>Healthcare Sentiment NLP</h3>
-          <p>Collected and processed 1.6M+ unstructured healthcare reviews — cleaning, tokenisation, lemmatisation, and TF-IDF vectorisation. Built scalable GCP workflows for data ingestion and model training. Deployed a real-time NLP pipeline and Streamlit UI with live sentiment tracking and visualisation dashboards.</p>
+          <p>Collected and processed 1.6M+ unstructured healthcare reviews - cleaning, tokenisation, lemmatisation, and TF-IDF vectorisation. Built scalable GCP workflows for data ingestion and model training. Deployed a real-time NLP pipeline and Streamlit UI with live sentiment tracking and visualisation dashboards.</p>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">GCP</span><span class="t">Scikit-learn</span><span class="t">Pandas</span><span class="t">NLP</span><span class="t">Streamlit</span><span class="t">Hugging Face</span>
           </div>
@@ -175,7 +192,7 @@
             </div>
           </div>
           <h3>Article Summarization App</h3>
-          <p>Web app that condenses long articles into concise summaries using five models — LSTM (RNN), Logistic Regression, Linear Regression, and two Decision Tree variants — trained on the CNN/DailyMail dataset. Users choose the model and summary length. Personally responsible for the LSTM model, output merging, and full deployment.</p>
+          <p>Web app that condenses long articles into concise summaries using five models - LSTM (RNN), Logistic Regression, Linear Regression, and two Decision Tree variants - trained on the CNN/DailyMail dataset. Users choose the model and summary length. Personally responsible for the LSTM model, output merging, and full deployment.</p>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">TensorFlow</span><span class="t">Scikit-learn</span><span class="t">LSTM</span><span class="t">TF-IDF</span><span class="t">Streamlit</span>
           </div>
@@ -192,7 +209,7 @@
             </div>
           </div>
           <h3>Movie Recommendation System</h3>
-          <p>Intelligent recommendation engine combining three ML approaches — KNN, Content-Based Filtering, and User-Based Collaborative Filtering — across a dataset of 500K+ entries. Fuses outputs from all three models to generate 5 curated, bias-reduced recommendations per user based on real-time input.</p>
+          <p>Intelligent recommendation engine combining three ML approaches - KNN, Content-Based Filtering, and User-Based Collaborative Filtering - across a dataset of 500K+ entries. Fuses outputs from all three models to generate 5 curated, bias-reduced recommendations per user based on real-time input.</p>
           <div class="proj-tags">
             <span class="t">Python</span><span class="t">Scikit-learn</span><span class="t">KNN</span><span class="t">Collaborative Filtering</span><span class="t">Pandas</span><span class="t">Jupyter</span>
           </div>
