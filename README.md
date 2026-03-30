@@ -1,4 +1,4 @@
-# sudipshrestha.ca
+# sudipshrestha.ca |[Portfolio] (https://sudip70.github.io/)
 
 Personal portfolio site for Sudip Shrestha - Data Analyst & AI Engineer based in Mississauga, ON.
 
