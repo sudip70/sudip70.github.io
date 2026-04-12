@@ -71,7 +71,7 @@
       <div class="masonry">
 
         <!-- 01 · Nepal -->
-        <div class="photo-item fade-up d1" onclick="openLightbox(0)">
+        <div class="photo-item fade-up d1" onclick="openLightbox(0)" onkeydown="handlePhotoKey(event, 0)" role="button" tabindex="0" aria-label="Open photo from Kathmandu, Nepal">
           <img class="photo-img" src="images/kathmandu1.jpg" alt="Kathmandu, Nepal" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -89,7 +89,7 @@
         </div>
 
         <!-- 02 · Nepal -->
-        <div class="photo-item fade-up d2" onclick="openLightbox(1)">
+        <div class="photo-item fade-up d2" onclick="openLightbox(1)" onkeydown="handlePhotoKey(event, 1)" role="button" tabindex="0" aria-label="Open photo from Kathmandu, Nepal">
           <img class="photo-img" src="images/kathmandu2.jpg" alt="Kathmandu, Nepal" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -107,7 +107,7 @@
         </div>
 
         <!-- 03 · Nepal -->
-        <div class="photo-item fade-up d3" onclick="openLightbox(2)">
+        <div class="photo-item fade-up d3" onclick="openLightbox(2)" onkeydown="handlePhotoKey(event, 2)" role="button" tabindex="0" aria-label="Open photo from Langtang National Park, Nepal">
           <img class="photo-img" src="images/langtang.jpg" alt="Langtang National Park, Nepal" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -125,7 +125,7 @@
         </div>
 
         <!-- 04 · Switzerland -->
-        <div class="photo-item fade-up d4" onclick="openLightbox(3)">
+        <div class="photo-item fade-up d4" onclick="openLightbox(3)" onkeydown="handlePhotoKey(event, 3)" role="button" tabindex="0" aria-label="Open photo from Kandersteg, Switzerland">
           <img class="photo-img" src="images/swiss1.jpg" alt="Kandersteg, Switzerland" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -143,7 +143,7 @@
         </div>
 
         <!-- 05 · Switzerland -->
-        <div class="photo-item fade-up d5" onclick="openLightbox(4)">
+        <div class="photo-item fade-up d5" onclick="openLightbox(4)" onkeydown="handlePhotoKey(event, 4)" role="button" tabindex="0" aria-label="Open photo from Oeschinensee, Switzerland">
           <img class="photo-img" src="images/swiss2.jpg" alt="Oeschinensee, Switzerland" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -161,7 +161,7 @@
         </div>
 
         <!-- 06 · Germany -->
-        <div class="photo-item fade-up d1" onclick="openLightbox(5)">
+        <div class="photo-item fade-up d1" onclick="openLightbox(5)" onkeydown="handlePhotoKey(event, 5)" role="button" tabindex="0" aria-label="Open photo from Koblenz, Germany">
           <img class="photo-img" src="images/germany.jpg" alt="Koblenz, Germany" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -179,7 +179,7 @@
         </div>
 
         <!-- 07 · Qatar -->
-        <div class="photo-item fade-up d2" onclick="openLightbox(6)">
+        <div class="photo-item fade-up d2" onclick="openLightbox(6)" onkeydown="handlePhotoKey(event, 6)" role="button" tabindex="0" aria-label="Open photo from Doha, Qatar">
           <img class="photo-img" src="images/qatar.jpg" alt="Doha, Qatar" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -197,7 +197,7 @@
         </div>
 
         <!-- 08 · Canada -->
-        <div class="photo-item fade-up d3" onclick="openLightbox(7)">
+        <div class="photo-item fade-up d3" onclick="openLightbox(7)" onkeydown="handlePhotoKey(event, 7)" role="button" tabindex="0" aria-label="Open photo from Toronto, Canada">
           <img class="photo-img" src="images/canada1.jpg" alt="Toronto, Canada" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -215,7 +215,7 @@
         </div>
 
         <!-- 09 · Canada -->
-        <div class="photo-item fade-up d4" onclick="openLightbox(8)">
+        <div class="photo-item fade-up d4" onclick="openLightbox(8)" onkeydown="handlePhotoKey(event, 8)" role="button" tabindex="0" aria-label="Open photo from Toronto, Canada">
           <img class="photo-img" src="images/canada2.jpg" alt="Toronto, Canada" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -233,7 +233,7 @@
         </div>
 
         <!-- 10 · Canada -->
-        <div class="photo-item fade-up d5" onclick="openLightbox(9)">
+        <div class="photo-item fade-up d5" onclick="openLightbox(9)" onkeydown="handlePhotoKey(event, 9)" role="button" tabindex="0" aria-label="Open photo from Toronto, Canada">
           <img class="photo-img" src="images/canada3.jpg" alt="Toronto, Canada" loading="lazy" />
           <div class="photo-overlay">
             <div class="overlay-tag">
@@ -305,6 +305,13 @@
       render();
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
+    }
+
+    function handlePhotoKey(event, idx) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(idx);
+      }
     }
 
     function closeLightbox() {

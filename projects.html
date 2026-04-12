@@ -13,9 +13,7 @@
 <body>
   <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
   <div class="nav-drawer" id="nav-drawer">
-    <div class="nav-drawer-close">
-      <span>Navigation</span>
-    </div>
+    <div class="nav-drawer-close"><span>Navigation</span></div>
     <ul class="nav-drawer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="experience.html">Experience</a></li>
@@ -54,6 +52,7 @@
     </div>
 
     <section class="flush-top">
+
       <div class="filter-bar fade-up d4">
         <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
         <button class="filter-btn" onclick="filterProjects('ml', this)">ML / AI</button>
@@ -64,203 +63,309 @@
         <button class="filter-btn" onclick="filterProjects('dataviz', this)">Data Visualization</button>
       </div>
 
-      <div class="projects-grid" id="projects-grid">
-        <!-- 1. Fraud Detection -->
-        <div class="proj-card fade-up d1" data-tags="dataviz ml">
-          <div class="proj-header">
-            <div class="proj-icon-lg">🛡️</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/fraudshield/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
+      <!-- ── FEATURED ── -->
+      <div id="featured-section">
+        <p class="projects-section-label fade-up d5">Featured</p>
+        <div class="projects-grid projects-grid--featured" id="featured-grid">
+
+          <!-- FraudShield -->
+          <div class="proj-card proj-card--featured fade-up d1" data-tags="dataviz ml" data-category="ml">
+            <a class="proj-demo" href="https://sudip70.github.io/fraudshield/" target="_blank" rel="noopener" aria-label="Open FraudShield live site" title="Open live site">
+              <img class="proj-demo-poster" src="images/project/fraudshield.png" alt="FraudShield live demo preview" loading="lazy" decoding="async" width="1056" height="720">
+              <video class="proj-demo-video" src="demo/fraudshield_demo.mp4" poster="images/project/fraudshield.png" muted loop playsinline preload="metadata" width="1056" height="720"></video>
+              <div class="proj-demo-fallback" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Open site</span>
+              </div>
+              <span class="proj-live-badge"><span class="proj-live-dot"></span>Live</span>
+            </a>
+            <div class="proj-card-body">
+              <div class="proj-header">
+                <div class="proj-icon-lg">🛡️</div>
+                <div class="proj-links">
+                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View FraudShield demo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
+                  </button>
+                  <a href="https://sudip70.github.io/fraudshield/" target="_blank" rel="noopener" title="Live Site">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h3>FraudShield</h3>
+                <p class="proj-overview">Explainable fraud monitoring dashboard with live transaction scoring, model benchmarking, and analyst-ready decision support.</p>
+              </div>
+              <ul class="proj-bullets">
+                <li>Benchmarked 4 classifiers on 100K+ banking transactions; best model reached ROC-AUC 0.975+</li>
+                <li>Engineered 44 fraud features across temporal, behavioral, geo, and interaction signals</li>
+                <li>Combined ML scoring with rule-based overrides and per-transaction SHAP explanations</li>
+                <li>Built a full-stack dashboard for EDA, threshold tuning, live scoring, and business impact analysis</li>
+              </ul>
+              <div class="proj-tags">
+                <span class="t">Python</span><span class="t">Vanilla JS</span><span class="t">FastAPI</span><span class="t">LightGBM</span><span class="t">SHAP</span><span class="t">Render</span>
+              </div>
+              <a class="proj-link" href="https://github.com/sudip70/fraudshield" target="_blank" rel="noopener">View project Repo →</a>
             </div>
           </div>
-          <h3>FraudShield</h3>
-          <p>Full-stack fraud detection system trained on 100K+ banking transactions. Benchmarks four classifiers via 5-fold stratified CV, achieving ROC-AUC of 0.975+. Engineers 44 features across temporal, behavioural, and interaction dimensions. Serves real-time predictions through a hybrid ML + rule engine with per-transaction SHAP explanations and an interactive analytics dashboard.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">FastAPI</span><span class="t">Scikit-learn</span><span class="t">SHAP</span><span class="t">Render</span><span class="t">LightGBM</span><span class="t">HTML</span><span class="t">CSS</span>
-          </div>
-        </div>
 
-        <!-- 1. Global Stats Monitor -->
-        <div class="proj-card fade-up d2" data-tags="dataviz">
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F30D;</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
+          <!-- F1 Analytics -->
+          <div class="proj-card proj-card--featured fade-up d2" data-tags="dataviz cloud" data-category="dataviz">
+            <a class="proj-demo" href="https://sudip70.github.io/f1/" target="_blank" rel="noopener" aria-label="Open F1. Analytics live site" title="Open live site">
+              <img class="proj-demo-poster" src="images/project/f1.png" alt="F1. Analytics live demo preview" loading="lazy" decoding="async" width="934" height="720">
+              <video class="proj-demo-video" src="demo/f1_demo.mp4" poster="images/project/f1.png" muted loop playsinline preload="metadata" width="934" height="720"></video>
+              <div class="proj-demo-fallback" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Open site</span>
+              </div>
+              <span class="proj-live-badge"><span class="proj-live-dot"></span>Live</span>
+            </a>
+            <div class="proj-card-body">
+              <div class="proj-header">
+                <div class="proj-icon-lg">🏎️</div>
+                <div class="proj-links">
+                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View F1. Analytics demo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
+                  </button>
+                  <a href="https://sudip70.github.io/f1/" target="_blank" rel="noopener" title="Live Site">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h3>F1. Analytics</h3>
+                <p class="proj-overview">Browser-based Formula 1 analytics dashboard covering 27 seasons, with live current-season data, race drill-downs, and a grounded F1 chat assistant.</p>
+              </div>
+              <ul class="proj-bullets">
+                <li>27 seasons of race results, qualifying, driver standings, and constructor standings from 2000 to the live 2026 season</li>
+                <li>Hybrid data layer: 2000–2025 loads from Supabase in about a second, while 2026 fetches live from the Jolpica F1 API</li>
+                <li>Six interactive charts plus per-race drill-downs with qualifying tables, top-10 results, and grid-to-finish slope charts</li>
+                <li>Vanilla HTML, CSS, and JavaScript frontend with a Supabase Edge Function chat assistant grounded in archive and live F1 data</li>
+              </ul>
+              <div class="proj-tags">
+                <span class="t">JavaScript</span><span class="t">Chart.js</span><span class="t">Supabase</span><span class="t">LLM Chatbot</span>
+              </div>
+              <a class="proj-link" href="https://github.com/sudip70/f1" target="_blank" rel="noopener">View project Repo →</a>
             </div>
           </div>
-          <h3>Global Stats Monitor</h3>
-          <p>Interactive 3D globe visualising global statistics sourced from Our World in Data - covering population, CO₂ emissions, HDI, deforestation, and energy consumption. Countries are colour-coded by metric and clickable, opening a side panel with per-country details. Includes an animated timeline that scrubs through historical data with live colour transitions, showing how the world has changed over time.</p>
-          <div class="proj-tags">
-            <span class="t">React</span><span class="t">Three.js</span><span class="t">HTML</span><span class="t">CSS</span><span class="t">Our World in Data</span>
-          </div>
-        </div>
 
-        <!-- 2. F1. Analytics -->
-        <div class="proj-card fade-up d3" data-tags="dataviz cloud">
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F3CE;&#xFE0F;</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/f1/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
+          <!-- Global Stats Monitor -->
+          <div class="proj-card proj-card--featured fade-up d3" data-tags="dataviz" data-category="dataviz">
+            <a class="proj-demo" href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" aria-label="Open Global Stats Monitor live site" title="Open live site">
+              <img class="proj-demo-poster" src="images/project/globalstats.png" alt="Global Stats Monitor live demo preview" loading="lazy" decoding="async" width="1280" height="652">
+              <video class="proj-demo-video" src="demo/globalstats_demo.mp4" poster="images/project/globalstats.png" muted loop playsinline preload="metadata" width="1280" height="652"></video>
+              <div class="proj-demo-fallback" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Open site</span>
+              </div>
+              <span class="proj-live-badge"><span class="proj-live-dot"></span>Live</span>
+            </a>
+            <div class="proj-card-body">
+              <div class="proj-header">
+                <div class="proj-icon-lg">🌍</div>
+                <div class="proj-links">
+                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View Global Stats Monitor demo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
+                  </button>
+                  <a href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" title="Live Site">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h3>Global Stats Monitor</h3>
+                <p class="proj-overview">Interactive 3D globe visualising world development indicators sourced from Our World in Data.</p>
+              </div>
+              <ul class="proj-bullets">
+                <li>Population, CO₂, HDI, deforestation, and energy — colour-coded and clickable by country</li>
+                <li>Side panel with per-country details and historical breakdown on click</li>
+                <li>Animated timeline scrubs live colour transitions across decades of data</li>
+                <li>Built with React and Three.js to keep the 3D globe responsive directly in the browser</li>
+              </ul>
+              <div class="proj-tags">
+                <span class="t">React</span><span class="t">Three.js</span><span class="t">HTML</span><span class="t">Our World in Data</span>
+              </div>
+              <a class="proj-link" href="https://github.com/sudip70/stats" target="_blank" rel="noopener">View project Repo →</a>
             </div>
           </div>
-          <h3>F1. Analytics</h3>
-          <p>Browser-based dashboard making 26 years of Formula 1 data explorable in one place. Past seasons (2000–2025) load from Supabase in under a second; the current season fetches live from the Jolpica F1 API. Features race results, qualifying times, championship standings, grid-to-finish slope charts, and six interactive analytics charts - no account, no paywall.</p>
-          <div class="proj-tags">
-            <span class="t">JavaScript</span><span class="t">Chart.js</span><span class="t">Supabase</span><span class="t">Jolpica API</span><span class="t">GitHub Pages</span>
-          </div>
-        </div>
-        <!-- 5. Plant Disease Detection -->
-        <div class="proj-card fade-up d4" data-tags="ml cv">
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F33F;</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/farmai/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
+
+          <!-- Plant Disease Detection -->
+          <div class="proj-card proj-card--featured fade-up d4" data-tags="ml cv" data-category="cv">
+            <a class="proj-demo" href="https://sudip70.github.io/farmai/" target="_blank" rel="noopener" aria-label="Open Plant Disease Detection live site" title="Open live site">
+              <img class="proj-demo-poster" src="images/project/farmai.jpg" alt="Plant Disease Detection live demo preview" loading="lazy" decoding="async" width="808" height="720">
+              <video class="proj-demo-video" src="demo/farmai_demo.mp4" poster="images/project/farmai.jpg" muted loop playsinline preload="metadata" width="808" height="720"></video>
+              <div class="proj-demo-fallback" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Open site</span>
+              </div>
+              <span class="proj-live-badge"><span class="proj-live-dot"></span>Live</span>
+            </a>
+            <div class="proj-card-body">
+              <div class="proj-header">
+                <div class="proj-icon-lg">🌿</div>
+                <div class="proj-links">
+                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View Plant Disease Detection demo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
+                  </button>
+                  <a href="https://sudip70.github.io/farmai/" target="_blank" rel="noopener" title="Live Site">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h3>Plant Disease Detection</h3>
+                <p class="proj-overview">CNN classifier built for remote farming communities to diagnose crop disease from a leaf photo.</p>
+              </div>
+              <ul class="proj-bullets">
+                <li>~97% validation accuracy on 10K+ mango leaf images from Dhaka University Agriculture Dept.</li>
+                <li>OpenCV augmentation pipeline — resize, normalise, and rotate for generalisation</li>
+                <li>Deployed on Hugging Face Spaces with an accessible Streamlit UI</li>
+                <li>Designed around a simple upload-first workflow for use beyond lab or classroom settings</li>
+              </ul>
+              <div class="proj-tags">
+                <span class="t">Python</span><span class="t">PyTorch</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span>
+              </div>
+              <a class="proj-link" href="https://github.com/sudip70/farmai" target="_blank" rel="noopener">View project Repo →</a>
             </div>
           </div>
-          <h3>Plant Disease Detection</h3>
-          <p>Pre-processed 10K+ mango leaf images from Dhaka University Agriculture Department using OpenCV, with augmentation (resize, normalise, rotate) for generalisation. Built and trained a custom CNN achieving ~97% accuracy on validation data. Deployed via Flask and Hugging Face Spaces with an accessible Streamlit UI - built for use in remote farming communities.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">PyTorch</span><span class="t">TensorFlow</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">SQLite</span>
-          </div>
-        </div>
 
-        <!-- 3. MarketMind -->
-        <div class="proj-card fade-up d5" data-tags="ml cloud">
-          <span class="badge badge-wip">&#x1F6A7; In Progress</span>
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F4C8;</div>
-          </div>
-          <h3>MarketMind</h3>
-          <p>Portfolio allocation system using Multi-Agent Reinforcement Learning. Leading development of individual agent models and a meta-model that coordinates across agents to optimise decisions. Designing financial data pipelines covering stocks, crypto, and ETFs from 2010 to present. Integrated with Alpaca for live paper trading simulation.</p>
-          <div class="proj-advisor">Advised by Prof. Bhavik Gandhi, Lambton College</div>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">PyTorch</span><span class="t">Azure</span><span class="t">Supabase</span><span class="t">Flask</span><span class="t">Streamlit</span><span class="t">PPO / SAC</span>
-          </div>
         </div>
+      </div>
 
-        <!-- 3. Eclipse Mega Movie -->
-        <div class="proj-card fade-up d6" data-tags="research cv">
-          <span class="badge badge-nasa">&#x1F6F8; NASA</span>
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F311;</div>
-          </div>
-          <h3>Eclipse Mega Movie 2024</h3>
-          <p>Contributed to a NASA-supported citizen science initiative analysing solar eclipse imagery at scale. Developed a specialised image alignment tool using OpenCV for large-scale astronomical image processing. Collaborated across a multidisciplinary team on data preparation and scientific workflows.</p>
-          <div class="proj-date">Dec 2024 – Dec 2025</div>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">OpenCV</span><span class="t">Image Processing</span>
-          </div>
-        </div>
+      <!-- ── MORE PROJECTS ── -->
+      <div id="more-section">
+        <p class="projects-section-label projects-section-label--more fade-up d1">More projects</p>
+        <div class="projects-grid" id="projects-grid">
 
-        <!-- 4. PyCTBGUI -->
-        <div class="proj-card fade-up d7" data-tags="research">
-          <span class="badge badge-oss">Open Source</span>
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F52C;</div>
-            <div class="proj-links proj-links--offset">
-              <a href="https://github.com/slsdetectorgroup/pyctbgui" target="_blank" rel="noopener" title="GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
+          <!-- MarketMind -->
+          <div class="proj-card fade-up d1" data-tags="ml cloud" data-category="ml">
+            <span class="badge badge-wip">&#x1F6A7; In Progress</span>
+            <div class="proj-header">
+              <div class="proj-icon-lg">&#x1F4C8;</div>
+            </div>
+            <h3>MarketMind</h3>
+            <p>Portfolio allocation system using Multi-Agent Reinforcement Learning. Leading development of individual agent models and a meta-model that coordinates across agents to optimise decisions. Designing financial data pipelines covering stocks, crypto, and ETFs from 2010 to present. Integrated with Alpaca for live paper trading simulation.</p>
+            <div class="proj-advisor">Advised by Prof. Bhavik Gandhi, Lambton College</div>
+            <div class="proj-tags">
+              <span class="t">Python</span><span class="t">PyTorch</span><span class="t">Azure</span><span class="t">Supabase</span><span class="t">PPO / SAC</span>
             </div>
           </div>
-          <h3>PyCTBGUI - PSI</h3>
-          <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute (PSI). Enables researchers to configure and control X-ray and photon detector hardware with live signal visualisation. Presented as a poster at NoBugs Conference 2022, Switzerland - publicly used by researchers at PSI.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">PyQt</span><span class="t">Matplotlib</span><span class="t">Plotly</span><span class="t">Linux</span>
-          </div>
-        </div>
 
-        <!-- 6. Healthcare Sentiment NLP -->
-        <div class="proj-card fade-up d8" data-tags="nlp cloud ml">
-          <div class="proj-header">
-            <div class="proj-icon-lg blue">&#x1F3E5;</div>
-            <div class="proj-links">
-              <a href="https://github.com/sudip70/Sentiment_Project" target="_blank" rel="noopener" title="GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
+          <!-- Eclipse Mega Movie -->
+          <div class="proj-card fade-up d2" data-tags="research cv" data-category="research">
+            <span class="badge badge-nasa">&#x1F6F8; NASA</span>
+            <div class="proj-header">
+              <div class="proj-icon-lg">&#x1F311;</div>
+            </div>
+            <h3>Eclipse Mega Movie 2024</h3>
+            <p>Contributed to a NASA-supported citizen science initiative analysing solar eclipse imagery at scale. Developed a specialised image alignment tool using OpenCV for large-scale astronomical image processing. Collaborated across a multidisciplinary team on data preparation and scientific workflows.</p>
+            <div class="proj-date">Dec 2024 – Dec 2025</div>
+            <div class="proj-tags">
+              <span class="t">Python</span><span class="t">OpenCV</span><span class="t">Image Processing</span>
             </div>
           </div>
-          <h3>Healthcare Sentiment NLP</h3>
-          <p>Collected and processed 1.6M+ unstructured healthcare reviews - cleaning, tokenisation, lemmatisation, and TF-IDF vectorisation. Built scalable GCP workflows for data ingestion and model training. Deployed a real-time NLP pipeline and Streamlit UI with live sentiment tracking and visualisation dashboards.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">GCP</span><span class="t">Scikit-learn</span><span class="t">Pandas</span><span class="t">NLP</span><span class="t">Streamlit</span><span class="t">Hugging Face</span>
-          </div>
-        </div>
 
-        <!-- 7. Article Summarization -->
-        <div class="proj-card fade-up d9" data-tags="nlp ml">
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F4DD;</div>
-            <div class="proj-links">
-              <a href="https://textsummarynn.streamlit.app" target="_blank" rel="noopener" title="Live App">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-              <a href="https://github.com/sudip70/text_summarize_RNN" target="_blank" rel="noopener" title="GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
+          <!-- PyCTBGUI -->
+          <div class="proj-card fade-up d3" data-tags="research" data-category="research">
+            <span class="badge badge-oss">Open Source</span>
+            <div class="proj-header">
+              <div class="proj-icon-lg">&#x1F52C;</div>
+              <div class="proj-links proj-links--offset">
+                <a href="https://github.com/slsdetectorgroup/pyctbgui" target="_blank" rel="noopener" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3>PyCTBGUI - PSI</h3>
+            <p>Open-source Python GUI for the Chip Test Board at Paul Scherrer Institute (PSI). Enables researchers to configure and control X-ray and photon detector hardware with live signal visualisation. Presented as a poster at NoBugs Conference 2022, Switzerland.</p>
+            <div class="proj-tags">
+              <span class="t">Python</span><span class="t">PyQt</span><span class="t">Matplotlib</span><span class="t">Plotly</span><span class="t">Linux</span>
             </div>
           </div>
-          <h3>Article Summarization App</h3>
-          <p>Web app that condenses long articles into concise summaries using five models - LSTM (RNN), Logistic Regression, Linear Regression, and two Decision Tree variants - trained on the CNN/DailyMail dataset. Users choose the model and summary length. Personally responsible for the LSTM model, output merging, and full deployment.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">TensorFlow</span><span class="t">Scikit-learn</span><span class="t">LSTM</span><span class="t">TF-IDF</span><span class="t">Streamlit</span>
-          </div>
-        </div>
 
-        <!-- 8. Movie Recommendation -->
-        <div class="proj-card fade-up d10" data-tags="ml">
-          <div class="proj-header">
-            <div class="proj-icon-lg">&#x1F3AC;</div>
-            <div class="proj-links">
-              <a href="https://github.com/sudip70/Movie-Recommendation" target="_blank" rel="noopener" title="GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
+          <!-- Healthcare Sentiment NLP -->
+          <div class="proj-card fade-up d4" data-tags="nlp cloud ml" data-category="nlp">
+            <div class="proj-header">
+              <div class="proj-icon-lg blue">&#x1F3E5;</div>
+              <div class="proj-links">
+                <a href="https://github.com/sudip70/Sentiment_Project" target="_blank" rel="noopener" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3>Healthcare Sentiment NLP</h3>
+            <p>Collected and processed 1.6M+ unstructured healthcare reviews - cleaning, tokenisation, lemmatisation, and TF-IDF vectorisation. Built scalable GCP workflows for data ingestion and model training. Deployed a real-time NLP pipeline and Streamlit UI with live sentiment tracking.</p>
+            <div class="proj-tags">
+              <span class="t">Python</span><span class="t">GCP</span><span class="t">Scikit-learn</span><span class="t">NLP</span><span class="t">Streamlit</span>
             </div>
           </div>
-          <h3>Movie Recommendation System</h3>
-          <p>Intelligent recommendation engine combining three ML approaches - KNN, Content-Based Filtering, and User-Based Collaborative Filtering - across a dataset of 500K+ entries. Fuses outputs from all three models to generate 5 curated, bias-reduced recommendations per user based on real-time input.</p>
-          <div class="proj-tags">
-            <span class="t">Python</span><span class="t">Scikit-learn</span><span class="t">KNN</span><span class="t">Collaborative Filtering</span><span class="t">Pandas</span><span class="t">Jupyter</span>
-          </div>
-        </div>
 
-        <!-- 9. Medics -->
-        <div class="proj-card fade-up d11" data-tags="">
-          <div class="proj-header">
-            <div class="proj-icon-lg blue">&#x1F48A;</div>
-          </div>
-          <h3>Medics</h3>
-          <p>Full-stack Android medical companion app providing instant access to health information and emergency resources. Features medical condition search with descriptions, symptoms, prevention, and cures. Includes location-based hospital, doctor, and ambulance finder. Built a community-driven blood bank where users can find or donate blood by type.</p>
-          <div class="proj-tags">
-            <span class="t">Flutter</span><span class="t">Flask</span><span class="t">MySQL</span><span class="t">Android</span><span class="t">REST API</span>
-          </div>
-        </div>
-
-        <!-- 10. Social Media Dashboard -->
-        <div class="proj-card fade-up d12" data-tags="dataviz">
-          <div class="proj-header">
-            <div class="proj-icon-lg blue">&#x1F4CA;</div>
-            <div class="proj-links">
-              <a href="https://github.com/sudip70/Social_Dashboard" target="_blank" rel="noopener" title="GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
+          <!-- Article Summarization -->
+          <div class="proj-card fade-up d5" data-tags="nlp ml" data-category="nlp">
+            <div class="proj-header">
+              <div class="proj-icon-lg">&#x1F4DD;</div>
+              <div class="proj-links">
+                <a href="https://textsummarynn.streamlit.app" target="_blank" rel="noopener" title="Live App">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://github.com/sudip70/text_summarize_RNN" target="_blank" rel="noopener" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3>Article Summarization App</h3>
+            <p>Web app that condenses long articles using five models - LSTM (RNN), Logistic Regression, Linear Regression, and two Decision Tree variants - trained on the CNN/DailyMail dataset. Users choose the model and summary length.</p>
+            <div class="proj-tags">
+              <span class="t">Python</span><span class="t">TensorFlow</span><span class="t">LSTM</span><span class="t">TF-IDF</span><span class="t">Streamlit</span>
             </div>
           </div>
-          <h3>Social Media Dashboard</h3>
-          <p>Interactive analytics dashboard visualising social media engagement metrics, follower trends, and content performance. Responsive, data-driven design built for real-time insight delivery.</p>
-          <div class="proj-tags">
-            <span class="t">HTML</span><span class="t">CSS</span><span class="t">JavaScript</span><span class="t">Data Viz</span>
-          </div>
-        </div>
 
+          <!-- Movie Recommendation -->
+          <div class="proj-card fade-up d1" data-tags="ml" data-category="ml">
+            <div class="proj-header">
+              <div class="proj-icon-lg">&#x1F3AC;</div>
+              <div class="proj-links">
+                <a href="https://github.com/sudip70/Movie-Recommendation" target="_blank" rel="noopener" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3>Movie Recommendation System</h3>
+            <p>Intelligent recommendation engine combining KNN, Content-Based Filtering, and User-Based Collaborative Filtering across a dataset of 500K+ entries. Fuses all three models to generate 5 curated, bias-reduced recommendations per user based on real-time input.</p>
+            <div class="proj-tags">
+              <span class="t">Python</span><span class="t">Scikit-learn</span><span class="t">KNN</span><span class="t">Pandas</span><span class="t">Jupyter</span>
+            </div>
+          </div>
+
+          <!-- Medics -->
+          <div class="proj-card fade-up d2" data-tags="cloud" data-category="cloud">
+            <div class="proj-header">
+              <div class="proj-icon-lg blue">&#x1F48A;</div>
+            </div>
+            <h3>Medics</h3>
+            <p>Full-stack Android medical companion app providing instant access to health information and emergency resources. Features medical condition search, location-based hospital and ambulance finder, and a community-driven blood bank where users can find or donate blood by type.</p>
+            <div class="proj-tags">
+              <span class="t">Flutter</span><span class="t">Flask</span><span class="t">MySQL</span><span class="t">Android</span><span class="t">REST API</span>
+            </div>
+          </div>
+
+          <!-- Social Media Dashboard -->
+          <div class="proj-card fade-up d3" data-tags="dataviz" data-category="dataviz">
+            <div class="proj-header">
+              <div class="proj-icon-lg blue">&#x1F4CA;</div>
+              <div class="proj-links">
+                <a href="https://github.com/sudip70/Social_Dashboard" target="_blank" rel="noopener" title="GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3>Social Media Dashboard</h3>
+            <p>Interactive analytics dashboard visualising social media engagement metrics, follower trends, and content performance. Responsive, data-driven design built for real-time insight delivery.</p>
+            <div class="proj-tags">
+              <span class="t">HTML</span><span class="t">CSS</span><span class="t">JavaScript</span><span class="t">Data Viz</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -278,15 +383,177 @@
     </footer>
   </div>
 
+  <div class="lightbox proj-lightbox" id="proj-lightbox" onclick="closeProjectLightboxOnBg(event)" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="proj-lb-title">
+    <div class="lightbox-inner proj-lightbox-inner">
+      <button class="lb-close" type="button" onclick="closeProjectLightbox()" aria-label="Close project demo">✕</button>
+      <div class="lb-img-wrap proj-lb-img-wrap">
+        <video id="proj-lb-video" autoplay muted loop playsinline controls preload="metadata"></video>
+      </div>
+      <div class="lb-meta proj-lb-meta">
+        <div class="lb-location" id="proj-lb-title"></div>
+        <div class="lb-note" id="proj-lb-aspect"></div>
+      </div>
+    </div>
+  </div>
+
   <script>
     function filterProjects(tag, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
       document.querySelectorAll('.proj-card').forEach(card => {
         const tags = card.getAttribute('data-tags') || '';
         card.style.display = (tag === 'all' || tags.includes(tag)) ? 'flex' : 'none';
       });
+
+      const featuredSection = document.getElementById('featured-section');
+      const moreSection     = document.getElementById('more-section');
+
+      const featuredVisible = Array.from(document.querySelectorAll('#featured-grid .proj-card')).some(c => c.style.display !== 'none');
+      const moreVisible     = Array.from(document.querySelectorAll('#projects-grid .proj-card')).some(c => c.style.display !== 'none');
+
+      featuredSection.style.display = featuredVisible ? '' : 'none';
+      moreSection.style.display     = moreVisible     ? '' : 'none';
     }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const projectLightbox = document.getElementById('proj-lightbox');
+    const projectLightboxVideo = document.getElementById('proj-lb-video');
+    const projectLightboxTitle = document.getElementById('proj-lb-title');
+    const projectLightboxAspect = document.getElementById('proj-lb-aspect');
+    let lastProjectTrigger = null;
+
+    function openProjectLightbox({ trigger, video, title }) {
+      if (!video || !projectLightbox || !projectLightboxVideo) return;
+
+      video.pause();
+      video.currentTime = 0;
+      video.closest('.proj-demo')?.classList.remove('is-playing');
+
+      lastProjectTrigger = trigger || null;
+      projectLightboxVideo.pause();
+      projectLightboxVideo.src = video.currentSrc || video.src;
+      if (video.poster) projectLightboxVideo.poster = video.poster;
+      else projectLightboxVideo.removeAttribute('poster');
+      projectLightboxVideo.load();
+      projectLightboxTitle.textContent = title || 'Project demo';
+
+      const fallbackWidth = Number(video.getAttribute('width')) || 0;
+      const fallbackHeight = Number(video.getAttribute('height')) || 0;
+
+      const updateAspect = () => {
+        const width = projectLightboxVideo.videoWidth || fallbackWidth;
+        const height = projectLightboxVideo.videoHeight || fallbackHeight;
+        projectLightboxAspect.textContent = width && height
+          ? `Video size ${width} × ${height}`
+          : 'Original aspect ratio preserved';
+      };
+
+      if (projectLightboxVideo.readyState >= 1) updateAspect();
+      else projectLightboxVideo.addEventListener('loadedmetadata', updateAspect, { once: true });
+
+      projectLightbox.classList.add('open');
+      projectLightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const playPromise = projectLightboxVideo.play();
+      if (playPromise) playPromise.catch(() => {});
+    }
+
+    function closeProjectLightbox() {
+      if (!projectLightbox || !projectLightboxVideo) return;
+      projectLightbox.classList.remove('open');
+      projectLightbox.setAttribute('aria-hidden', 'true');
+      projectLightboxVideo.pause();
+      projectLightboxVideo.removeAttribute('src');
+      projectLightboxVideo.removeAttribute('poster');
+      projectLightboxVideo.load();
+      document.body.style.overflow = '';
+      lastProjectTrigger?.focus();
+    }
+
+    function closeProjectLightboxOnBg(event) {
+      if (event.target === projectLightbox) closeProjectLightbox();
+    }
+
+    document.addEventListener('keydown', event => {
+      if (!projectLightbox?.classList.contains('open')) return;
+      if (event.key === 'Escape') closeProjectLightbox();
+    });
+
+    document.querySelectorAll('.proj-card--featured').forEach(card => {
+      const demo = card.querySelector('.proj-demo');
+      if (!demo) return;
+      const video = demo.querySelector('.proj-demo-video');
+      if (!video) return;
+      const title = card.querySelector('h3')?.textContent.trim() || 'Project demo';
+      const demoTrigger = card.querySelector('.proj-demo-trigger');
+
+      let isHovered = false;
+      let isFocused = false;
+
+      const wantsPreview = () =>
+        !prefersReducedMotion &&
+        !demo.classList.contains('is-error') &&
+        (isHovered || isFocused);
+
+      const stopPreview = () => {
+        demo.classList.remove('is-playing');
+        video.pause();
+        video.currentTime = 0;
+      };
+
+      const syncPreview = () => {
+        if (!wantsPreview()) {
+          stopPreview();
+          return;
+        }
+
+        const playPromise = video.play();
+        if (playPromise) {
+          playPromise
+            .then(() => {
+              if (wantsPreview()) demo.classList.add('is-playing');
+              else stopPreview();
+            })
+            .catch(() => {
+              demo.classList.remove('is-playing');
+            });
+        }
+      };
+
+      video.addEventListener('error', () => {
+        demo.classList.add('is-error');
+        stopPreview();
+      }, { once: true });
+
+      card.addEventListener('mouseenter', () => {
+        isHovered = true;
+        syncPreview();
+      });
+
+      card.addEventListener('mouseleave', () => {
+        isHovered = false;
+        syncPreview();
+      });
+
+      card.addEventListener('focusin', () => {
+        isFocused = true;
+        syncPreview();
+      });
+
+      card.addEventListener('focusout', () => {
+        requestAnimationFrame(() => {
+          isFocused = card.contains(document.activeElement);
+          syncPreview();
+        });
+      });
+
+      demoTrigger?.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        openProjectLightbox({ trigger: demoTrigger, video, title });
+      });
+    });
   </script>
 </body>
 </html>
