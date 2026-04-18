@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Education - Sudip Shrestha</title>
   <meta name="description" content="Sudip Shrestha's academic background - PGD in Big Data Analytics at Lambton College and BSc IT (First Class Honours) from London Metropolitan University." />
+  <link rel="canonical" href="https://sudip70.github.io/education.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="39a871e4-0554-4159-bb8d-2d2ced68bd07"></script>
 </head>
 <body>
-  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
-  <div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
     <div class="nav-drawer-close">
       <span>Navigation</span>
     </div>
@@ -38,7 +42,7 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-        <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+        <button class="nav-menu-btn" id="nav-menu-btn" type="button" onclick="toggleDrawer()" aria-label="Toggle menu" aria-controls="nav-drawer" aria-expanded="false">
           <span class="hamburger"></span>
         </button>
       </div>

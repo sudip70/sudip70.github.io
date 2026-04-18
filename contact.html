@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Sudip Shrestha</title>
   <meta name="description" content="Get in touch with Sudip Shrestha - open to roles in data analytics, ML engineering, and AI. Based in Mississauga, ON, Canada." />
+  <link rel="canonical" href="https://sudip70.github.io/contact.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="39a871e4-0554-4159-bb8d-2d2ced68bd07"></script>
 </head>
 <body>
-  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
-  <div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
     <div class="nav-drawer-close">
       <span>Navigation</span>
     </div>
@@ -39,7 +43,7 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-        <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+        <button class="nav-menu-btn" id="nav-menu-btn" type="button" onclick="toggleDrawer()" aria-label="Toggle menu" aria-controls="nav-drawer" aria-expanded="false">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -104,32 +108,32 @@
 
       <!-- RIGHT — FORM -->
       <div class="contact-form fade-up d2">
-        <div id="form-wrap">
+        <form id="contact-form" novalidate>
           <p class="form-heading">Send a message</p>
           <p class="form-sub">I typically respond within 24 hours.</p>
 
           <div class="form-row">
             <div class="form-group">
               <label for="fname">First name</label>
-              <input type="text" id="fname" placeholder="Jane" oninput="clearError('fname')" />
+              <input type="text" id="fname" name="fname" placeholder="Jane" autocomplete="given-name" required aria-describedby="fname-error" oninput="clearError('fname')" />
               <span class="field-error-msg" id="fname-error">First name is required</span>
             </div>
             <div class="form-group">
               <label for="lname">Last name</label>
-              <input type="text" id="lname" placeholder="Doe" oninput="clearError('lname')" />
+              <input type="text" id="lname" name="lname" placeholder="Doe" autocomplete="family-name" required aria-describedby="lname-error" oninput="clearError('lname')" />
               <span class="field-error-msg" id="lname-error">Last name is required</span>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="jane@example.com" oninput="clearError('email')" />
+            <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required aria-describedby="email-error" oninput="clearError('email')" />
             <span class="field-error-msg" id="email-error">A valid email is required</span>
           </div>
 
           <div class="form-group">
             <label for="subject">Subject</label>
-            <select id="subject" onchange="clearError('subject')">
+            <select id="subject" name="subject" required aria-describedby="subject-error" onchange="clearError('subject')">
               <option value="">Select a topic&#x2026;</option>
               <option>Job opportunity</option>
               <option>Project collaboration</option>
@@ -141,18 +145,23 @@
 
           <div class="form-group">
             <label for="message">Message <span class="form-optional">(optional)</span></label>
-            <textarea id="message" placeholder="Tell me about the opportunity or project or anything&#x2026;"></textarea>
+            <textarea id="message" name="message" placeholder="Tell me about the opportunity or project or anything&#x2026;"></textarea>
           </div>
 
-          <button class="btn btn-primary form-submit" onclick="handleSubmit()">
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
             Send Message &#x2192;
           </button>
-          <div class="form-error" id="form-error">
+          <div class="form-error" id="form-error" role="alert">
             Something went wrong &#x2014; please try emailing me directly at sudipshrestha.ca@gmail.com
           </div>
-        </div>
+        </form>
 
-        <div class="form-success" id="form-success">
+        <div class="form-success" id="form-success" aria-live="polite">
           <div class="success-icon">&#x1F389;</div>
           <h3>Message sent!</h3>
           <p>Thanks for reaching out, I'll get back to you shortly.</p>
@@ -180,17 +189,53 @@
     const EMAILJS_PUBLIC_KEY  = 'rFVChlK6P1KBNWonw';
     const EMAILJS_SERVICE_ID  = 'service_0mfrgag';
     const EMAILJS_TEMPLATE_ID = 'template_tv89jgy';
+    const FORM_MIN_FILL_MS = 1500;
+    const FORM_SUBMIT_COOLDOWN_MS = 60000;
+    const DEFAULT_FORM_ERROR = 'Something went wrong \u2014 please try emailing me directly at sudipshrestha.ca@gmail.com';
+    const BLOCKED_FORM_ERROR = 'Submission blocked. Please wait a moment and try again, or email me directly at sudipshrestha.ca@gmail.com.';
 
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    const contactForm = document.getElementById('contact-form');
+    const formError = document.getElementById('form-error');
+    let formInteractionAt = 0;
+
+    function showFormError(message) {
+      formError.textContent = message;
+      formError.style.display = 'block';
+    }
+
+    function hideFormError() {
+      formError.textContent = DEFAULT_FORM_ERROR;
+      formError.style.display = 'none';
+    }
+
+    function getLastSubmitAt() {
+      try {
+        return Number(localStorage.getItem('contact-last-submit') || '0');
+      } catch (error) {
+        return 0;
+      }
+    }
+
+    function rememberSubmit() {
+      try {
+        localStorage.setItem('contact-last-submit', String(Date.now()));
+      } catch (error) {
+        // Ignore storage errors; they only affect soft rate-limiting.
+      }
+    }
 
     function setError(id, show) {
       const input = document.getElementById(id);
       const msg   = document.getElementById(id + '-error');
       if (show) {
         input.classList.add('field-error');
+        input.setAttribute('aria-invalid', 'true');
         msg.classList.add('visible');
       } else {
         input.classList.remove('field-error');
+        input.setAttribute('aria-invalid', 'false');
         msg.classList.remove('visible');
       }
     }
@@ -201,12 +246,20 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
     }
 
-    function handleSubmit() {
+    function handleSubmit(event) {
+      event.preventDefault();
+
       const fname   = document.getElementById('fname').value.trim();
       const lname   = document.getElementById('lname').value.trim();
       const email   = document.getElementById('email').value.trim();
       const subject = document.getElementById('subject').value;
       const message = document.getElementById('message').value.trim();
+      const honeypot = document.getElementById('company').value.trim();
+      const now = Date.now();
+      const isSuspicious =
+        honeypot ||
+        (formInteractionAt && now - formInteractionAt < FORM_MIN_FILL_MS) ||
+        now - getLastSubmitAt() < FORM_SUBMIT_COOLDOWN_MS;
 
       let valid = true;
 
@@ -216,7 +269,12 @@
       if (!subject)             { setError('subject', true);  valid = false; } else { setError('subject', false); }
 
       if (!valid) return;
+      if (isSuspicious) {
+        showFormError(BLOCKED_FORM_ERROR);
+        return;
+      }
 
+      hideFormError();
       const btn = document.querySelector('.form-submit');
       btn.disabled    = true;
       btn.textContent = 'Sending\u2026';
@@ -229,16 +287,30 @@
         reply_to:   email,
       })
       .then(function () {
-        document.getElementById('form-wrap').style.display    = 'none';
+        rememberSubmit();
+        document.getElementById('contact-form').style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       })
       .catch(function (err) {
         console.error('EmailJS error:', err);
         btn.disabled    = false;
         btn.textContent = 'Send Message \u2192';
-        document.getElementById('form-error').style.display = 'block';
+        showFormError(DEFAULT_FORM_ERROR);
       });
     }
+
+    hideFormError();
+
+    contactForm.querySelectorAll('input:not([tabindex="-1"]), select, textarea').forEach(field => {
+      field.addEventListener('focus', () => {
+        if (!formInteractionAt) formInteractionAt = Date.now();
+      }, { once: true });
+      field.addEventListener('input', () => {
+        if (!formInteractionAt) formInteractionAt = Date.now();
+      }, { once: true });
+    });
+
+    contactForm.addEventListener('submit', handleSubmit);
   </script>
 </body>
 </html>

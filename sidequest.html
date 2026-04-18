@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sidequest - Sudip Shrestha</title>
   <meta name="description" content="Photography by Sudip Shrestha - frames from Nepal, Switzerland, Germany, Qatar, and Canada." />
+  <link rel="canonical" href="https://sudip70.github.io/sidequest.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
@@ -12,8 +16,8 @@
 </head>
 <body>
 
-  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
-  <div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
     <div class="nav-drawer-close">
       <span>Navigation</span>
     </div>
@@ -39,7 +43,7 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-        <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+        <button class="nav-menu-btn" id="nav-menu-btn" type="button" onclick="toggleDrawer()" aria-label="Toggle menu" aria-controls="nav-drawer" aria-expanded="false">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -61,7 +65,7 @@
         and restraint is its own kind of craft.
       </p>
       <div class="shot-count">
-        <span>10</span>
+        <span id="shot-count-value">0</span>
         frames selected
       </div>
     </div>
@@ -268,11 +272,11 @@
   </div>
 
   <!-- ── LIGHTBOX ── -->
-  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lb-location" aria-describedby="lb-note">
     <div class="lightbox-inner">
-      <button class="lb-close" onclick="closeLightbox()">✕</button>
-      <button class="lb-nav lb-prev" onclick="navLightbox(-1)">‹</button>
-      <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
+      <button class="lb-close" type="button" onclick="closeLightbox()" aria-label="Close photo viewer">✕</button>
+      <button class="lb-nav lb-prev" type="button" onclick="navLightbox(-1)" aria-label="Previous photo">‹</button>
+      <button class="lb-nav lb-next" type="button" onclick="navLightbox(1)" aria-label="Next photo">›</button>
       <div class="lb-img-wrap">
         <img id="lb-img" src="" alt="" />
       </div>
@@ -298,13 +302,21 @@
       { src: "images/canada3.jpg",    location: "Toronto, Canada",               note: "Engineering and pinnacle of motorsports."         },
     ];
 
+    document.getElementById('shot-count-value').textContent = photos.length;
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxCloseButton = lightbox.querySelector('.lb-close');
+    let lastPhotoTrigger = null;
     let current = 0;
 
     function openLightbox(idx) {
       current = idx;
+      lastPhotoTrigger = document.activeElement;
       render();
-      document.getElementById('lightbox').classList.add('open');
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => lightboxCloseButton.focus());
     }
 
     function handlePhotoKey(event, idx) {
@@ -315,12 +327,14 @@
     }
 
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      lastPhotoTrigger?.focus();
     }
 
     function closeLightboxOnBg(e) {
-      if (e.target === document.getElementById('lightbox')) closeLightbox();
+      if (e.target === lightbox) closeLightbox();
     }
 
     function navLightbox(dir) {
@@ -342,8 +356,29 @@
       document.getElementById('lb-counter').textContent = `${current + 1} / ${photos.length}`;
     }
 
+    function trapLightboxFocus(event) {
+      if (event.key !== 'Tab') return;
+
+      const focusable = Array.from(lightbox.querySelectorAll('button:not([disabled])'))
+        .filter(element => !element.hasAttribute('hidden') && element.offsetParent !== null);
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
     document.addEventListener('keydown', e => {
-      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (!lightbox.classList.contains('open')) return;
+      trapLightboxFocus(e);
       if (e.key === 'ArrowRight') navLightbox(1);
       if (e.key === 'ArrowLeft')  navLightbox(-1);
       if (e.key === 'Escape')     closeLightbox();

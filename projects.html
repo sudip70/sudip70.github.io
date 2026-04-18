@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - Sudip Shrestha</title>
   <meta name="description" content="Projects by Sudip Shrestha - 3D global stats visualiser, F1 analytics dashboard, multi-agent RL portfolio system, NASA citizen science, NLP pipelines and more." />
+  <link rel="canonical" href="https://sudip70.github.io/projects.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="39a871e4-0554-4159-bb8d-2d2ced68bd07"></script>
 </head>
 <body>
-  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
-  <div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
     <div class="nav-drawer-close"><span>Navigation</span></div>
     <ul class="nav-drawer-links">
       <li><a href="index.html">Home</a></li>
@@ -37,7 +41,7 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-        <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+        <button class="nav-menu-btn" id="nav-menu-btn" type="button" onclick="toggleDrawer()" aria-label="Toggle menu" aria-controls="nav-drawer" aria-expanded="false">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -403,17 +407,18 @@
 
       document.querySelectorAll('.proj-card').forEach(card => {
         const tags = card.getAttribute('data-tags') || '';
-        card.style.display = (tag === 'all' || tags.includes(tag)) ? 'flex' : 'none';
+        const shouldHide = tag !== 'all' && !tags.includes(tag);
+        card.classList.toggle('is-hidden', shouldHide);
       });
 
       const featuredSection = document.getElementById('featured-section');
       const moreSection     = document.getElementById('more-section');
 
-      const featuredVisible = Array.from(document.querySelectorAll('#featured-grid .proj-card')).some(c => c.style.display !== 'none');
-      const moreVisible     = Array.from(document.querySelectorAll('#projects-grid .proj-card')).some(c => c.style.display !== 'none');
+      const featuredVisible = Array.from(document.querySelectorAll('#featured-grid .proj-card')).some(c => !c.classList.contains('is-hidden'));
+      const moreVisible     = Array.from(document.querySelectorAll('#projects-grid .proj-card')).some(c => !c.classList.contains('is-hidden'));
 
-      featuredSection.style.display = featuredVisible ? '' : 'none';
-      moreSection.style.display     = moreVisible     ? '' : 'none';
+      featuredSection.classList.toggle('is-hidden', !featuredVisible);
+      moreSection.classList.toggle('is-hidden', !moreVisible);
     }
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -421,6 +426,7 @@
     const projectLightboxVideo = document.getElementById('proj-lb-video');
     const projectLightboxTitle = document.getElementById('proj-lb-title');
     const projectLightboxAspect = document.getElementById('proj-lb-aspect');
+    const projectLightboxCloseButton = projectLightbox?.querySelector('.lb-close');
     let lastProjectTrigger = null;
 
     function openProjectLightbox({ trigger, video, title }) {
@@ -455,6 +461,7 @@
       projectLightbox.classList.add('open');
       projectLightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => projectLightboxCloseButton?.focus());
       const playPromise = projectLightboxVideo.play();
       if (playPromise) playPromise.catch(() => {});
     }

@@ -1,3 +1,35 @@
+let lastDrawerTrigger = null;
+
+function setDrawerState(open, restoreFocus = true) {
+  const drawer = document.getElementById('nav-drawer');
+  const backdrop = document.getElementById('nav-backdrop');
+  const btn = document.getElementById('nav-menu-btn');
+  if (!drawer || !backdrop || !btn) return;
+
+  if (open) {
+    lastDrawerTrigger = btn;
+    drawer.hidden = false;
+    backdrop.hidden = false;
+  }
+
+  drawer.classList.toggle('open', open);
+  btn.classList.toggle('open', open);
+  backdrop.style.display = open ? 'block' : 'none';
+  btn.setAttribute('aria-expanded', String(open));
+  drawer.setAttribute('aria-hidden', String(!open));
+  backdrop.setAttribute('aria-hidden', String(!open));
+
+  if (open) {
+    const firstLink = drawer.querySelector('.nav-drawer-links a');
+    requestAnimationFrame(() => firstLink?.focus());
+    return;
+  }
+
+  drawer.hidden = true;
+  backdrop.hidden = true;
+  if (restoreFocus) lastDrawerTrigger?.focus();
+}
+
 // Apply saved theme immediately (before paint) to prevent flash
 (function () {
   const saved = localStorage.getItem('theme');
@@ -38,23 +70,15 @@ function updateToggleIcon(theme) {
 
 // ── MOBILE DRAWER ──────────────────────────────────────────────
 function toggleDrawer() {
-  const drawer   = document.getElementById('nav-drawer');
-  const backdrop = document.getElementById('nav-backdrop');
-  const btn      = document.getElementById('nav-menu-btn');
+  const drawer = document.getElementById('nav-drawer');
   if (!drawer) return;
-  const open = drawer.classList.toggle('open');
-  backdrop.style.display = open ? 'block' : 'none';
-  btn.classList.toggle('open', open);
+  setDrawerState(!drawer.classList.contains('open'));
 }
 
-function closeDrawer() {
-  const drawer   = document.getElementById('nav-drawer');
-  const backdrop = document.getElementById('nav-backdrop');
-  const btn      = document.getElementById('nav-menu-btn');
+function closeDrawer(restoreFocus = true) {
+  const drawer = document.getElementById('nav-drawer');
   if (!drawer) return;
-  drawer.classList.remove('open');
-  backdrop.style.display = 'none';
-  btn.classList.remove('open');
+  setDrawerState(false, restoreFocus);
 }
 
 // ── DOMContentLoaded: icons + close drawer on nav link click ──
@@ -63,9 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const current = document.documentElement.getAttribute('data-theme') || 'dark';
   updateToggleIcon(current);
 
+  const drawer = document.getElementById('nav-drawer');
+  const backdrop = document.getElementById('nav-backdrop');
+  const btn = document.getElementById('nav-menu-btn');
+
+  if (drawer && backdrop && btn) {
+    drawer.hidden = true;
+    backdrop.hidden = true;
+    drawer.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'nav-drawer');
+  }
+
   // Close drawer when any drawer link is tapped
   document.querySelectorAll('.nav-drawer-links a').forEach(link => {
-    link.addEventListener('click', closeDrawer);
+    link.addEventListener('click', () => closeDrawer(false));
   });
 
   // ── SCROLL ANIMATIONS ──
@@ -83,5 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Close drawer on Escape key
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeDrawer();
+  if (e.key !== 'Escape') return;
+  const drawer = document.getElementById('nav-drawer');
+  if (drawer?.classList.contains('open')) closeDrawer();
 });

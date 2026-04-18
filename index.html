@@ -4,27 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Sudip Shrestha - Portfolio</title>
-  <meta name="description" content="Sudip Shrestha - Data Analyst & AI Engineer based in Mississauga, ON. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
+  <meta name="description" content="Sudip Shrestha - Data Analyst &amp; AI Engineer based in Mississauga, ON. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
   <meta name="keywords" content="Sudip Shrestha, Data Analyst, AI Engineer, Software Engineer, Machine Learning, Data Engineering, Data Science" />
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Sudip Shrestha, sudip70" />
   <meta name="language" content="English" />
   <meta name="revisit-after" content="7 days" />
+  <link rel="canonical" href="https://sudip70.github.io/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
 
     <!-- Social Media Meta Tags -->
   <meta property="og:title" content="Sudip Shrestha - Portfolio" />
-  <meta property="og:description" content="Sudip Shrestha - Data Analyst & AI Engineer based in Mississauga, ON. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
-  <meta property="og:image" content="https://sudip70.github.io/thumbnail.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Sudip Shrestha - Data Analyst &amp; AI Engineer based in Mississauga, ON. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
+  <meta property="og:image" content="https://sudip70.github.io/images/project/globalstats.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="652" />
   <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Sudip Shrestha portfolio preview" />
   <meta property="og:url" content="https://sudip70.github.io/" />
   <meta property="og:type" content="website" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sudip Shrestha - Portfolio" />
-  <meta name="twitter:description" content="Sudip Shrestha - Data Analyst & AI Engineer based in Mississauga, ON. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
-  <meta property="twitter:image" content="https://sudip70.github.io/thumbnail.png" />
+  <meta name="twitter:description" content="Sudip Shrestha - Data Analyst &amp; AI Engineer based in Mississauga, ON. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
+  <meta name="twitter:image" content="https://sudip70.github.io/images/project/globalstats.png" />
+  <meta name="twitter:image:alt" content="Sudip Shrestha portfolio preview" />
 
     <!-- Mobile Web Application Meta -->
   <meta name="mobile-web-app-title" content="Sudip Shrestha - Portfolio" />
@@ -36,8 +42,8 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="39a871e4-0554-4159-bb8d-2d2ced68bd07"></script>
 </head>
 <body>
-  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()"></div>
-  <div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
     <div class="nav-drawer-close">
       <span>Navigation</span>
     </div>
@@ -63,7 +69,7 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-        <button class="nav-menu-btn" id="nav-menu-btn" onclick="toggleDrawer()" aria-label="Toggle menu">
+        <button class="nav-menu-btn" id="nav-menu-btn" type="button" onclick="toggleDrawer()" aria-label="Toggle menu" aria-controls="nav-drawer" aria-expanded="false">
           <span class="hamburger"></span>
         </button>
       </div>
