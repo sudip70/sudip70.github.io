@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Projects - Sudip Shrestha</title>
-  <meta name="description" content="Projects by Sudip Shrestha - 3D global stats visualiser, F1 analytics dashboard, multi-agent RL portfolio system, NASA citizen science, NLP pipelines and more." />
+  <meta name="description" content="Projects by Sudip Shrestha - Foresight market intelligence dashboard, explainable fraud detection, local Gemma AI, F1 analytics, 3D global stats and more." />
   <link rel="canonical" href="https://sudip70.github.io/projects.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,7 +52,7 @@
     <div class="page-header">
       <p class="section-label fade-up d1">Portfolio</p>
       <h1 class="fade-up d2">Projects</h1>
-      <p class="page-subtitle fade-up d3">From multi-agent RL to NASA citizen science - things I've built and researched.</p>
+      <p class="page-subtitle fade-up d3">Market intelligence, explainable ML, local AI, data visualization, and research projects I've built.</p>
     </div>
 
     <section class="flush-top">
@@ -72,8 +72,48 @@
         <p class="projects-section-label fade-up d5">Featured</p>
         <div class="projects-grid projects-grid--featured" id="featured-grid">
 
+          <!-- Foresight -->
+          <div class="proj-card proj-card--featured fade-up d1" data-tags="ml dataviz cloud" data-category="ml" id="foresight">
+            <a class="proj-demo" href="https://sudip70.github.io/foresight/" target="_blank" rel="noopener" aria-label="Open Foresight live site" title="Open live site">
+              <img class="proj-demo-poster" src="images/project/foresight.png" alt="Foresight market intelligence dashboard preview" loading="lazy" decoding="async" width="3124" height="2108">
+              <video class="proj-demo-video" src="demo/foresight_demo.mp4" poster="images/project/foresight.png" muted loop playsinline preload="metadata" width="1784" height="912"></video>
+              <div class="proj-demo-fallback" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Open site</span>
+              </div>
+              <span class="proj-live-badge"><span class="proj-live-dot"></span>Live</span>
+            </a>
+            <div class="proj-card-body">
+              <div class="proj-header">
+                <div class="proj-icon-lg">&#x1F4C8;</div>
+                <div class="proj-links">
+                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View Foresight demo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
+                  </button>
+                  <a href="https://sudip70.github.io/foresight/" target="_blank" rel="noopener" title="Live Site">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h3>Foresight</h3>
+                <p class="proj-overview">Full-stack market intelligence and portfolio simulation dashboard that turns live market data into scenario forecasts, allocation guidance, and finance-learning workflows.</p>
+              </div>
+              <ul class="proj-bullets">
+                <li>Trained a hierarchical RL system: 3 PPO sub-agents (stocks, crypto, ETFs) coordinated by a SAC meta-agent; reward functions penalise concentration and reward benchmark alpha.</li>
+                <li>Added surrogate-SHAP explainability to surface per-sleeve allocation decisions; risk-based cash caps prevent degenerate policies.</li>
+                <li>Built a 55-asset market universe on Supabase with automated refresh across OHLCV, macro context, and 30/90/180/300-day forecast snapshots.</li>
+                <li>Shipped 13 FastAPI routes, CI/CD via GitHub Actions, and a $10K portfolio simulator with bear/base/bull paths up to 730 days, deployed on Render.</li>
+              </ul>
+              <div class="proj-tags">
+                <span class="t">Python</span><span class="t">FastAPI</span><span class="t">Supabase</span><span class="t">PPO/SAC</span><span class="t">SHAP</span><span class="t">Render</span>
+              </div>
+              <a class="proj-link" href="https://github.com/sudip70/foresight" target="_blank" rel="noopener">View project repo →</a>
+            </div>
+          </div>
+
           <!-- FraudShield -->
-          <div class="proj-card proj-card--featured fade-up d1" data-tags="dataviz ml" data-category="ml" id="fraudshield">
+          <div class="proj-card proj-card--featured fade-up d2" data-tags="dataviz ml" data-category="ml" id="fraudshield">
             <a class="proj-demo" href="https://sudip70.github.io/fraudshield/" target="_blank" rel="noopener" aria-label="Open FraudShield live site" title="Open live site">
               <img class="proj-demo-poster" src="images/project/fraudshield.png" alt="FraudShield live demo preview" loading="lazy" decoding="async" width="1056" height="720">
               <video class="proj-demo-video" src="demo/fraudshield_demo.mp4" poster="images/project/fraudshield.png" muted loop playsinline preload="metadata" width="1056" height="720"></video>
@@ -108,12 +148,49 @@
               <div class="proj-tags">
                 <span class="t">Python</span><span class="t">Vanilla JS</span><span class="t">FastAPI</span><span class="t">LightGBM</span><span class="t">SHAP</span><span class="t">Render</span>
               </div>
-              <a class="proj-link" href="https://github.com/sudip70/fraudshield" target="_blank" rel="noopener">View project Repo →</a>
+              <a class="proj-link" href="https://github.com/sudip70/fraudshield" target="_blank" rel="noopener">View project repo →</a>
+            </div>
+          </div>
+
+          <!-- Gemma Local AI -->
+          <div class="proj-card proj-card--featured fade-up d3" data-tags="ml nlp" data-category="nlp" id="gemma-local-ai">
+            <div class="proj-demo">
+              <img class="proj-demo-poster" src="images/project/gemma.png" alt="Gemma Local AI demo preview" loading="lazy" decoding="async" width="3594" height="1876">
+              <video class="proj-demo-video" src="demo/gemma_demo.mp4" poster="images/project/gemma.png" muted loop playsinline preload="metadata" width="1784" height="912"></video>
+              <div class="proj-demo-fallback" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Preview demo</span>
+              </div>
+              <span class="proj-live-badge proj-live-badge--local"><span class="proj-live-dot"></span>Demo</span>
+            </div>
+            <div class="proj-card-body">
+              <div class="proj-header">
+                <div class="proj-icon-lg">🧠</div>
+                <div class="proj-links">
+                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View Gemma Local AI demo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div>
+                <h3>Gemma Local AI</h3>
+                <p class="proj-overview">Local-first chat interface for Gemma running through Ollama, with persistent browser memory, multimodal attachments, and polished chat workflows.</p>
+              </div>
+              <ul class="proj-bullets">
+                <li>Built a FastAPI + vanilla JS chat client that runs Gemma locally through an app-managed Ollama process instead of a hosted API</li>
+                <li>Designed persistent conversation UX with localStorage memory, searchable history grouped by recency, inline chat renaming, and clear/reset controls</li>
+                <li>Added text-file and image attachment support, context-window trimming, and markdown-style response rendering for code, tables, lists, and math</li>
+                <li>Implemented reliability features including model health checks, online/offline status, managed startup and shutdown of Ollama, and timeout/error handling for local inference requests</li>
+              </ul>
+              <div class="proj-tags">
+                <span class="t">Python</span><span class="t">Vanilla JS</span><span class="t">FastAPI</span><span class="t">Ollama</span><span class="t">Gemma 4</span><span class="t">HTML/CSS</span>
+              </div>
+              <a class="proj-link" href="https://github.com/sudip70/localAIChat" target="_blank" rel="noopener">View project repo →</a>
             </div>
           </div>
 
           <!-- F1 Analytics -->
-          <div class="proj-card proj-card--featured fade-up d2" data-tags="dataviz cloud" data-category="dataviz" id="f1-analytics">
+          <div class="proj-card proj-card--featured fade-up d4" data-tags="dataviz cloud" data-category="dataviz" id="f1-analytics">
             <a class="proj-demo" href="https://sudip70.github.io/f1/" target="_blank" rel="noopener" aria-label="Open F1. Analytics live site" title="Open live site">
               <img class="proj-demo-poster" src="images/project/f1.png" alt="F1. Analytics live demo preview" loading="lazy" decoding="async" width="934" height="720">
               <video class="proj-demo-video" src="demo/f1_demo.mp4" poster="images/project/f1.png" muted loop playsinline preload="metadata" width="934" height="720"></video>
@@ -148,12 +225,12 @@
               <div class="proj-tags">
                 <span class="t">JavaScript</span><span class="t">Chart.js</span><span class="t">Supabase</span><span class="t">LLM Chatbot</span>
               </div>
-              <a class="proj-link" href="https://github.com/sudip70/f1" target="_blank" rel="noopener">View project Repo →</a>
+              <a class="proj-link" href="https://github.com/sudip70/f1" target="_blank" rel="noopener">View project repo →</a>
             </div>
           </div>
 
           <!-- Global Stats Monitor -->
-          <div class="proj-card proj-card--featured fade-up d3" data-tags="dataviz" data-category="dataviz" id="global-stats-monitor">
+          <div class="proj-card proj-card--featured fade-up d5" data-tags="dataviz" data-category="dataviz" id="global-stats-monitor">
             <a class="proj-demo" href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" aria-label="Open Global Stats Monitor live site" title="Open live site">
               <img class="proj-demo-poster" src="images/project/globalstats.png" alt="Global Stats Monitor live demo preview" loading="lazy" decoding="async" width="1280" height="652">
               <video class="proj-demo-video" src="demo/globalstats_demo.mp4" poster="images/project/globalstats.png" muted loop playsinline preload="metadata" width="1280" height="652"></video>
@@ -180,7 +257,7 @@
                 <p class="proj-overview">Interactive 3D globe visualising world development indicators sourced from Our World in Data.</p>
               </div>
               <ul class="proj-bullets">
-                <li>Population, CO₂, HDI, deforestation, and energy — colour-coded and clickable by country</li>
+                <li>Population, CO₂, HDI, deforestation, and energy: colour-coded and clickable by country</li>
                 <li>Side panel with per-country details and historical breakdown on click</li>
                 <li>Animated timeline scrubs live colour transitions across decades of data</li>
                 <li>Built with React and Three.js to keep the 3D globe responsive directly in the browser</li>
@@ -188,12 +265,12 @@
               <div class="proj-tags">
                 <span class="t">React</span><span class="t">Three.js</span><span class="t">HTML</span><span class="t">Our World in Data</span>
               </div>
-              <a class="proj-link" href="https://github.com/sudip70/stats" target="_blank" rel="noopener">View project Repo →</a>
+              <a class="proj-link" href="https://github.com/sudip70/stats" target="_blank" rel="noopener">View project repo →</a>
             </div>
           </div>
 
           <!-- Plant Disease Detection -->
-          <div class="proj-card proj-card--featured fade-up d4" data-tags="ml cv" data-category="cv" id="plant-disease-detection">
+          <div class="proj-card proj-card--featured fade-up d5" data-tags="ml cv" data-category="cv" id="plant-disease-detection">
             <a class="proj-demo" href="https://sudip70.github.io/farmai/" target="_blank" rel="noopener" aria-label="Open Plant Disease Detection live site" title="Open live site">
               <img class="proj-demo-poster" src="images/project/farmai.jpg" alt="Plant Disease Detection live demo preview" loading="lazy" decoding="async" width="808" height="720">
               <video class="proj-demo-video" src="demo/farmai_demo.mp4" poster="images/project/farmai.jpg" muted loop playsinline preload="metadata" width="808" height="720"></video>
@@ -221,51 +298,14 @@
               </div>
               <ul class="proj-bullets">
                 <li>~97% validation accuracy on 10K+ mango leaf images from Dhaka University Agriculture Dept.</li>
-                <li>OpenCV augmentation pipeline — resize, normalise, and rotate for generalisation</li>
+                <li>OpenCV augmentation pipeline: resize, normalise, and rotate for generalisation</li>
                 <li>Deployed on Hugging Face Spaces with an accessible Streamlit UI</li>
                 <li>Designed around a simple upload-first workflow for use beyond lab or classroom settings</li>
               </ul>
               <div class="proj-tags">
                 <span class="t">Python</span><span class="t">PyTorch</span><span class="t">OpenCV</span><span class="t">Flask</span><span class="t">Streamlit</span>
               </div>
-              <a class="proj-link" href="https://github.com/sudip70/farmai" target="_blank" rel="noopener">View project Repo →</a>
-            </div>
-          </div>
-
-          <!-- Gemma Local AI -->
-          <div class="proj-card proj-card--featured fade-up d5" data-tags="ml nlp" data-category="nlp" id="gemma-local-ai">
-            <div class="proj-demo">
-              <img class="proj-demo-poster" src="images/project/gemma.png" alt="Gemma Local AI demo preview" loading="lazy" decoding="async" width="3594" height="1876">
-              <video class="proj-demo-video" src="demo/gemma_demo.mp4" poster="images/project/gemma.png" muted loop playsinline preload="metadata" width="1784" height="912"></video>
-              <div class="proj-demo-fallback" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <span>Preview demo</span>
-              </div>
-              <span class="proj-live-badge proj-live-badge--local"><span class="proj-live-dot"></span>Demo</span>
-            </div>
-            <div class="proj-card-body">
-              <div class="proj-header">
-                <div class="proj-icon-lg">🧠</div>
-                <div class="proj-links">
-                  <button type="button" class="proj-demo-trigger" title="View Demo" aria-label="View Gemma Local AI demo">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 6 19 12 8 18 8 6"/></svg>
-                  </button>
-                </div>
-              </div>
-              <div>
-                <h3>Gemma Local AI</h3>
-                <p class="proj-overview">Local-first chat interface for Gemma running through Ollama, with persistent browser memory, multimodal attachments, and polished chat workflows.</p>
-              </div>
-              <ul class="proj-bullets">
-                <li>Built a FastAPI + vanilla JS chat client that runs Gemma locally through an app-managed Ollama process instead of a hosted API</li>
-                <li>Designed persistent conversation UX with localStorage memory, searchable history grouped by recency, inline chat renaming, and clear/reset controls</li>
-                <li>Added text-file and image attachment support, context-window trimming, and markdown-style response rendering for code, tables, lists, and math</li>
-                <li>Implemented reliability features including model health checks, online/offline status, managed startup and shutdown of Ollama, and timeout/error handling for local inference requests</li>
-              </ul>
-              <div class="proj-tags">
-                <span class="t">Python</span><span class="t">Vanilla JS</span><span class="t">FastAPI</span><span class="t">Ollama</span><span class="t">Gemma 4</span><span class="t">HTML/CSS</span>
-              </div>
-              <a class="proj-link" href="https://github.com/sudip70/localAIChat" target="_blank" rel="noopener">View project Repo →</a>
+              <a class="proj-link" href="https://github.com/sudip70/farmai" target="_blank" rel="noopener">View project repo →</a>
             </div>
           </div>
 
@@ -277,22 +317,8 @@
         <p class="projects-section-label projects-section-label--more fade-up d1">More projects</p>
         <div class="projects-grid" id="projects-grid">
 
-          <!-- MarketMind -->
-          <div class="proj-card fade-up d1" data-tags="ml cloud" data-category="ml">
-            <span class="badge badge-wip">&#x1F6A7; In Progress</span>
-            <div class="proj-header">
-              <div class="proj-icon-lg">&#x1F4C8;</div>
-            </div>
-            <h3>MarketMind</h3>
-            <p>Portfolio allocation system using Multi-Agent Reinforcement Learning. Leading development of individual agent models and a meta-model that coordinates across agents to optimise decisions. Designing financial data pipelines covering stocks, crypto, and ETFs from 2010 to present. Integrated with Alpaca for live paper trading simulation.</p>
-            <div class="proj-advisor">Advised by Prof. Bhavik Gandhi, Lambton College</div>
-            <div class="proj-tags">
-              <span class="t">Python</span><span class="t">PyTorch</span><span class="t">Azure</span><span class="t">Supabase</span><span class="t">PPO / SAC</span>
-            </div>
-          </div>
-
           <!-- Eclipse Mega Movie -->
-          <div class="proj-card fade-up d2" data-tags="research cv" data-category="research">
+          <div class="proj-card fade-up d1" data-tags="research cv" data-category="research">
             <span class="badge badge-nasa">&#x1F6F8; NASA</span>
             <div class="proj-header">
               <div class="proj-icon-lg">&#x1F311;</div>
@@ -411,7 +437,7 @@
     </section>
 
     <footer>
-      <span>&#169; 2026 Sudip Shrestha &#xB7; Mississauga, ON, Canada</span>
+      <span>&#169; 2026 Sudip Shrestha &#xB7; Mississauga, Ontario, Canada</span>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sudipshrestha.ca@gmail.com" aria-label="Email">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

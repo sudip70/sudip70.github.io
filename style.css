@@ -662,28 +662,6 @@ body::before {
   white-space: nowrap;
 }
 
-.sidequest-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 16px;
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  text-decoration: none;
-  letter-spacing: 0.06em;
-  padding: 10px 20px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  transition: color 0.2s, border-color 0.2s;
-}
-
-.sidequest-link:hover {
-  color: var(--accent);
-  border-color: rgba(200,240,96,0.3);
-}
-
-.sidequest-link .sq-icon { font-size: 14px; }
 .sidequest-btn { margin-top: 20px; }
 
 /* ── CONTACT PAGE ── */
@@ -1190,8 +1168,7 @@ body::before {
   letter-spacing: 0.04em;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+.filter-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(200,240,96,0.05);
@@ -1219,10 +1196,6 @@ body::before {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.proj-icon-lg.blue {
-  background: var(--surface2);
-  border-color: var(--border);
-}
 
 .proj-links { display: flex; gap: 8px; }
 .proj-links--offset { margin-top: 18px; }
@@ -1276,6 +1249,17 @@ body::before {
   box-shadow: 0 0 0 1px rgba(200,240,96,0.08);
 }
 
+.proj-links button:disabled,
+.proj-links button:disabled:hover,
+.proj-links button:disabled:focus-visible {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  box-shadow: none;
+}
+
 .proj-card:hover .proj-icon-lg {
   background: rgba(200,240,96,0.08);
   border-color: rgba(200,240,96,0.22);
@@ -1283,11 +1267,6 @@ body::before {
   transform: translateY(-1px);
 }
 
-.proj-advisor {
-  font-size: 12px;
-  color: var(--muted);
-  font-family: 'DM Mono', monospace;
-}
 
 .proj-date {
   font-family: 'DM Mono', monospace;
@@ -1728,8 +1707,7 @@ body::before {
   .masonry { grid-template-columns: 1fr; }
 }
 /* ═══════════════════════════════════════════════════
-/* ═══════════════════════════════════════════════════
-   PROJECTS PAGE — append to the bottom of style.css
+   PROJECTS PAGE
 ═══════════════════════════════════════════════════ */
 
 .projects-section-label {
@@ -1862,6 +1840,7 @@ body::before {
   transition: opacity 0.2s ease;
   background: linear-gradient(180deg, rgba(13,13,15,0.18), rgba(13,13,15,0.55));
 }
+
 
 .proj-demo.is-error .proj-demo-fallback { opacity: 1; }
 .proj-demo.is-error .proj-demo-poster { opacity: 1; }
