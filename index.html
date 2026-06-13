@@ -13,9 +13,9 @@
   <link rel="canonical" href="https://sudip70.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
 
-    <!-- Social Media Meta Tags -->
+  <!-- Social Media Meta Tags -->
   <meta property="og:title" content="Sudip Shrestha - Portfolio" />
   <meta property="og:description" content="Sudip Shrestha - AI/ML Engineer &amp; Data Analyst based in Mississauga, Ontario. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
   <meta property="og:image" content="https://sudip70.github.io/images/project/globalstats.png" />
@@ -25,14 +25,12 @@
   <meta property="og:image:alt" content="Sudip Shrestha portfolio preview" />
   <meta property="og:url" content="https://sudip70.github.io/" />
   <meta property="og:type" content="website" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sudip Shrestha - Portfolio" />
   <meta name="twitter:description" content="Sudip Shrestha - AI/ML Engineer &amp; Data Analyst based in Mississauga, Ontario. Built detector software at PSI Switzerland, contributed to NASA's Eclipse Mega Movie, and ships AI-powered systems from RL to production." />
   <meta name="twitter:image" content="https://sudip70.github.io/images/project/globalstats.png" />
   <meta name="twitter:image:alt" content="Sudip Shrestha portfolio preview" />
 
-    <!-- Mobile Web Application Meta -->
   <meta name="mobile-web-app-title" content="Sudip Shrestha - Portfolio" />
   <meta name="mobile-web-app-capable" content="yes" />
 
@@ -44,21 +42,22 @@
 <body>
   <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
   <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
-    <div class="nav-drawer-close">
-      <span>Navigation</span>
-    </div>
+    <div class="nav-drawer-close"><span>Navigation</span></div>
     <ul class="nav-drawer-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="sidequest.html">Sidequest</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="sidequest.html">Sidequest</a></li>
     </ul>
   </div>
+
   <nav>
     <div class="nav-inner">
-      <a class="nav-logo" href="index.html">Sudip<span>.</span></a>
+      <a class="nav-logo" href="index.html">
+        Sudip<span>.</span>
+      </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
@@ -77,243 +76,201 @@
   </nav>
 
   <div class="page">
-    <div class="hero">
-      <div class="glow"></div>
+
+    <!-- ── HERO ── -->
+    <header class="hero">
       <div class="hero-eyebrow fade-up d1">
-        <div class="status-dot"></div>
-        <span>Open to opportunities · Mississauga, Ontario, Canada</span>
+        <span class="status-dot"></span>
+        <span>Open to opportunities &middot; Mississauga, Ontario, Canada</span>
       </div>
-      <h1 class="fade-up d2">Sudip<br /><em>Shrestha</em></h1>
+      <h1 class="fade-up d2"><span class="line">Sudip</span><span class="line"><em>Shrestha</em></span></h1>
       <p class="hero-sub fade-up d3">
-        AI/ML Engineer &amp; Data Analyst. I build ML systems that ship.<br />
-        PSI Switzerland · NASA Eclipse Mega Movie · production ML pipelines.
+        AI/ML Engineer &amp; Data Analyst. I build machine-learning systems that ship:
+        <strong>detector software at PSI Switzerland</strong>,
+        <strong>NASA's Eclipse Mega Movie</strong>, and production ML pipelines.
       </p>
       <div class="hero-cta fade-up d4">
-        <a class="btn btn-primary" href="projects.html">View My Work →</a>
-        <a class="btn btn-outline" href="contact.html">Get in Touch</a>
+        <a class="btn btn-primary magnetic" href="projects.html">View my work <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-outline" href="contact.html">Get in touch</a>
       </div>
       <div class="skills-strip fade-up d5">
-        <span class="tag">Python</span>
-        <span class="tag">SQL</span>
-        <span class="tag">C#</span>
-        <span class="tag">Reinforcement Learning</span>
-        <span class="tag blue">Machine Learning</span>
-        <span class="tag blue">Power BI</span>
-        <span class="tag blue">GCP</span>
-        <span class="tag blue">CI/CD</span>
-        <span class="tag neutral">PyTorch</span>
-        <span class="tag neutral">TensorFlow</span>
-        <span class="tag neutral">Spark</span>
-        <span class="tag neutral">Hugging Face</span>
+        <span class="skills-lead">Stack</span>
+        <div class="skills-chips">
+          <span class="sk on">Python</span>
+          <span class="sk on">SQL</span>
+          <span class="sk">C#</span>
+          <span class="sk on">Machine Learning</span>
+          <span class="sk">Reinforcement Learning</span>
+          <span class="sk">PyTorch</span>
+          <span class="sk">TensorFlow</span>
+          <span class="sk">Power BI</span>
+          <span class="sk">GCP</span>
+          <span class="sk">Spark</span>
+          <span class="sk">Hugging Face</span>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <hr class="divider" />
-
+    <!-- ── ABOUT ── -->
     <section>
-      <p class="section-label">About Me</p>
+      <div class="sec-head fade-up"></div>
       <div class="about-split">
-        <div class="about-left">
-          <h2>Building intelligent<br />data systems</h2>
-          <p class="about-intro">I'm an AI/ML Engineer and Data Analyst based in Mississauga, Ontario, Canada. My experience ranges from building X-ray detector software at Paul Scherrer Institute in Switzerland, to contributing to NASA's Eclipse Mega Movie citizen science project, to leading teams on applied ML and data engineering projects.</p>
-          <p>I work at the intersection of machine learning, cloud infrastructure, and real-world data - building things that actually matter.</p>
+        <div class="about-left fade-up">
+          <h2>Building intelligent<br /><em>data systems</em></h2>
+          <p class="about-intro">I'm an AI/ML Engineer and Data Analyst based in Mississauga, Ontario, Canada. My work ranges from building X-ray detector software at the Paul Scherrer Institute in Switzerland, to contributing to NASA's Eclipse Mega Movie citizen-science project, to leading teams on applied ML and data engineering.</p>
+          <p>I work at the intersection of machine learning, cloud infrastructure, and real-world data, building things that actually matter.</p>
           <div class="about-actions">
-            <a class="btn btn-outline" href="experience.html">Experience →</a>
-            <a class="btn btn-outline" href="projects.html">Projects →</a>
+            <a class="btn btn-outline" href="experience.html">Experience <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-outline" href="projects.html">Projects <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
-        <div class="about-right">
-          <div class="stat-card fade-up d1">
-            <div class="stat-num">97<span>%</span></div>
-            <div class="stat-label">Validation accuracy on plant disease CNN model</div>
-          </div>
-          <div class="stat-card fade-up d2">
-            <div class="stat-num">1.6<span>M+</span></div>
-            <div class="stat-label">Healthcare reviews processed in NLP pipeline</div>
-          </div>
-          <div class="stat-card fade-up d2">
-            <div class="stat-num">500<span>K+</span></div>
-            <div class="stat-label">F1 records across 27 seasons of race, qualifying & lap data (2000–2026)</div>
-          </div>
-          <div class="stat-card fade-up d3">
-            <div class="stat-num">40<span>%</span></div>
-            <div class="stat-label">Throughput boost at PSI by optimizing legacy systems</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <section>
-      <p class="section-label">Career</p>
-      <h2>Where I've worked</h2>
-      <div class="exp-strip">
-        <div class="exp-row fade-up d1">
-          <div class="exp-dot"></div>
-          <div>
-            <div class="exp-title">AI Research Contributor</div>
-            <div class="exp-company">Outlier (Scale AI) · Freelance · Remote</div>
-          </div>
-          <div class="exp-date">Dec 2025 – Present</div>
-        </div>
-        <div class="exp-row fade-up d2">
-          <div class="exp-dot blue"></div>
-          <div>
-            <div class="exp-title">Data and Reporting Analyst Co-Op</div>
-            <div class="exp-company">Hal Group Inc · Vaughan, ON, Canada</div>
-          </div>
-          <div class="exp-date">Sep 2025 – Dec 2025</div>
-        </div>
-        <div class="exp-row fade-up d3">
-          <div class="exp-dot"></div>
-          <div>
-            <div class="exp-title">Software Engineer Intern</div>
-            <div class="exp-company">Paul Scherrer Institute (PSI) · Villigen, Aarau, Switzerland</div>
-          </div>
-          <div class="exp-date">Jul 2022 – Sep 2022</div>
-        </div>
-        <div class="exp-row fade-up d4">
-          <div class="exp-dot blue"></div>
-          <div>
-            <div class="exp-title">IT Intern</div>
-            <div class="exp-company">Kinniho Pvt Ltd (kinniho.com.np) · Kathmandu, Nepal</div>
-          </div>
-          <div class="exp-date">Oct 2021 – Jan 2022</div>
-        </div>
-      </div>
-      <div class="exp-more">
-        <a class="btn btn-outline" href="experience.html">Full experience →</a>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <section>
-      <p class="section-label">Featured Work</p>
-      <h2>Things I've built</h2>
-      <div class="project-grid">
-
-        <!-- Foresight -->
-        <div class="proj-card fade-up d1">
-          <div class="proj-header">
-            <div class="proj-icon">&#x1F4C8;</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/foresight/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
+        <div class="about-right fade-up d2">
+          <div class="stat-list">
+            <div class="stat-row">
+              <div class="stat-num"><span class="stat-val" data-count="97">0</span><span class="stat-suffix">%</span></div>
+              <div class="stat-label">Validation accuracy on the plant-disease CNN model</div>
             </div>
+            <div class="stat-row">
+              <div class="stat-num"><span class="stat-val" data-count="1.6">0</span><span class="stat-suffix">M+</span></div>
+              <div class="stat-label">Healthcare reviews processed in the NLP pipeline</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-num"><span class="stat-val" data-count="500">0</span><span class="stat-suffix">K+</span></div>
+              <div class="stat-label">F1 records across 27 seasons of race, qualifying &amp; lap data (2000-2026)</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-num"><span class="stat-val" data-count="40">0</span><span class="stat-suffix">%</span></div>
+              <div class="stat-label">Throughput boost at PSI by optimizing legacy systems</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CAREER ── -->
+    <section>
+      <div class="sec-head fade-up"></div>
+      <h2 class="fade-up" style="margin-bottom:8px">Where I've worked</h2>
+      <div class="lane-list fade-up d2" style="margin-top:28px">
+        <a class="lane" href="experience.html">
+          <span><span class="lane-role">AI Research Contributor</span><span class="lane-org">Outlier (Scale AI) &middot; Freelance, Remote</span></span>
+          <span class="lane-date">Dec 2025 - Present</span>
+        </a>
+        <a class="lane" href="experience.html">
+          <span><span class="lane-role">Data &amp; Reporting Analyst, Co-Op</span><span class="lane-org">Hal Group Inc &middot; Vaughan, ON, Canada</span></span>
+          <span class="lane-date">Sep 2025 - Dec 2025</span>
+        </a>
+        <a class="lane" href="experience.html">
+          <span><span class="lane-role">Software Engineer Intern</span><span class="lane-org">Paul Scherrer Institute (PSI) &middot; Villigen, Switzerland</span></span>
+          <span class="lane-date">Jul 2022 - Sep 2022</span>
+        </a>
+        <a class="lane" href="experience.html">
+          <span><span class="lane-role">IT Intern</span><span class="lane-org">Kinniho Pvt Ltd &middot; Kathmandu, Nepal</span></span>
+          <span class="lane-date">Oct 2021 - Jan 2022</span>
+        </a>
+      </div>
+      <div class="lane-more fade-up">
+        <a class="btn btn-outline" href="experience.html">Full experience <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ── FEATURED WORK ── -->
+    <section>
+      <div class="sec-head fade-up"></div>
+      <h2 class="fade-up" style="margin-bottom:8px">Things I've built</h2>
+      <div class="project-grid" style="margin-top:32px">
+
+        <div class="proj-card spotlight fade-up d1">
+          <div class="proj-head">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/><path d="M19 7h-3M19 7v3"/></svg></span>
+            <a href="https://sudip70.github.io/foresight/" target="_blank" rel="noopener" class="proj-no" title="Live site" style="text-decoration:none">Live &#8599;</a>
           </div>
           <h3>Foresight</h3>
-          <p>Full-stack market intelligence and portfolio simulation dashboard that turns live market data into scenario forecasts, allocation guidance, and finance-learning workflows using FastAPI, Supabase, Chart.js, and Vanilla JS.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag blue">FastAPI</span><span class="tag neutral">Supabase</span></div>
-          <a class="proj-link" href="projects.html#foresight">View details →</a>
+          <p>Full-stack market-intelligence and portfolio-simulation dashboard that turns live market data into scenario forecasts, allocation guidance, and finance-learning workflows using FastAPI, Supabase, Chart.js, and vanilla JS.</p>
+          <div class="proj-tags"><span class="tag accent">Python</span><span class="tag">FastAPI</span><span class="tag">Supabase</span></div>
+          <a class="proj-link" href="projects.html#foresight">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-        <!-- FraudShield -->
-        <div class="proj-card fade-up d2">
-          
-          <div class="proj-header">
-            <div class="proj-icon">🛡️</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/fraudshield/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
-            </div>
+        <div class="proj-card spotlight fade-up d2">
+          <div class="proj-head">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <a href="https://sudip70.github.io/fraudshield/" target="_blank" rel="noopener" class="proj-no" title="Live site" style="text-decoration:none">Live &#8599;</a>
           </div>
           <h3>FraudShield</h3>
-          <p>A full-stack fraud detection system that benchmarks four ML classifiers on 100K+ banking transactions, serving real-time risk scores through a hybrid ML + rule engine with SHAP explainability and an interactive analytics dashboard deployed on GitHub Pages and Render.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag blue">FastAPI</span><span class="tag neutral">LightGBM</span></div>
-          <a class="proj-link" href="projects.html#fraudshield">View details →</a>
+          <p>Full-stack fraud-detection system that benchmarks four ML classifiers on 100K+ banking transactions, serving real-time risk scores through a hybrid ML + rule engine with SHAP explainability and an interactive analytics dashboard.</p>
+          <div class="proj-tags"><span class="tag accent">Python</span><span class="tag">FastAPI</span><span class="tag">LightGBM</span></div>
+          <a class="proj-link" href="projects.html#fraudshield">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-        <!-- Gemma Local AI -->
-        <div class="proj-card fade-up d3">
-          <div class="proj-header">
-            <div class="proj-icon">🧠</div>
+        <div class="proj-card spotlight fade-up d3">
+          <div class="proj-head">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span>
           </div>
           <h3>Gemma Local AI</h3>
           <p>Local-first chat interface for Gemma running through Ollama, with persistent browser memory, multimodal attachments, and polished chat workflows built in FastAPI and vanilla JavaScript.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag blue">FastAPI</span><span class="tag neutral">Ollama</span></div>
-          <a class="proj-link" href="projects.html#gemma-local-ai">View details →</a>
+          <div class="proj-tags"><span class="tag accent">Python</span><span class="tag">FastAPI</span><span class="tag">Ollama</span></div>
+          <a class="proj-link" href="projects.html#gemma-local-ai">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-        <!-- F1 Analytics -->
-        <div class="proj-card fade-up d4">
-          <div class="proj-header">
-            <div class="proj-icon">&#x1F3CE;&#xFE0F;</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/f1/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
-            </div>
+        <div class="proj-card spotlight fade-up d4">
+          <div class="proj-head">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14a9 9 0 0 1 18 0"/><path d="M12 14l5-3"/><circle cx="12" cy="14" r="1.4" fill="currentColor" stroke="none"/></svg></span>
+            <a href="https://sudip70.github.io/f1/" target="_blank" rel="noopener" class="proj-no" title="Live site" style="text-decoration:none">Live &#8599;</a>
           </div>
           <h3>F1. Analytics</h3>
-          <p>Browser-based dashboard making 27 years of Formula 1 data explorable in one place - race results, qualifying, standings, and six interactive analytics charts. Live data for the current season, no account needed.</p>
-          <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag blue">Chart.js</span><span class="tag neutral">Supabase</span></div>
-          <a class="proj-link" href="projects.html#f1-analytics">View details →</a>
+          <p>Browser-based dashboard making 27 years of Formula 1 data explorable in one place: race results, qualifying, standings, and six interactive analytics charts. Live data for the current season, no account needed.</p>
+          <div class="proj-tags"><span class="tag accent">JavaScript</span><span class="tag">Chart.js</span><span class="tag">Supabase</span></div>
+          <a class="proj-link" href="projects.html#f1-analytics">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-        <!-- Global Stats Monitor -->
-        <div class="proj-card fade-up d5">
-          <div class="proj-header">
-            <div class="proj-icon">&#x1F30D;</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
-            </div>
+        <div class="proj-card spotlight fade-up d5">
+          <div class="proj-head">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></span>
+            <a href="https://sudip70.github.io/stats/" target="_blank" rel="noopener" class="proj-no" title="Live site" style="text-decoration:none">Live &#8599;</a>
           </div>
           <h3>Global Stats Monitor</h3>
-          <p>Interactive 3D globe visualising population, CO₂, HDI, deforestation, and energy data from Our World in Data. Click any country for details; animated timeline shows historical change with live colour transitions.</p>
-          <div class="proj-tags"><span class="tag">React</span><span class="tag blue">Three.js</span><span class="tag neutral">Our World in Data</span></div>
-          <a class="proj-link" href="projects.html#global-stats-monitor">View details →</a>
+          <p>Interactive 3D globe visualising population, CO&#8322;, HDI, deforestation, and energy data from Our World in Data. Click any country for details; an animated timeline shows historical change with live colour transitions.</p>
+          <div class="proj-tags"><span class="tag accent">React</span><span class="tag">Three.js</span><span class="tag">OWID</span></div>
+          <a class="proj-link" href="projects.html#global-stats-monitor">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-        <!-- Plant Disease Detection -->
-        <div class="proj-card fade-up d5">
-          <div class="proj-header">
-            <div class="proj-icon">🌿</div>
-            <div class="proj-links">
-              <a href="https://sudip70.github.io/farmai/" target="_blank" rel="noopener" title="Live Site">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </a>
-            </div>
+        <div class="proj-card spotlight fade-up d6">
+          <div class="proj-head">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-9 0 4-1 7-4 9"/><path d="M11 20c0-4 2-7 6-8"/></svg></span>
+            <a href="https://sudip70.github.io/farmai/" target="_blank" rel="noopener" class="proj-no" title="Live site" style="text-decoration:none">Live &#8599;</a>
           </div>
           <h3>Plant Disease Detection</h3>
           <p>CNN classifier built for remote farming communities to diagnose crop disease from a leaf photo, with an upload-first interface and deployment optimized for real-world field use.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag blue">PyTorch</span><span class="tag neutral">OpenCV</span></div>
-          <a class="proj-link" href="projects.html#plant-disease-detection">View details →</a>
+          <div class="proj-tags"><span class="tag accent">Python</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span></div>
+          <a class="proj-link" href="projects.html#plant-disease-detection">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
       </div>
-      <div class="projects-more"><a class="btn btn-outline" href="projects.html">See all projects →</a></div>
+      <div class="projects-more fade-up"><a class="btn btn-outline" href="projects.html">See all projects <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </section>
 
-    <hr class="divider" />
-
+    <!-- ── CTA ── -->
     <section class="cta-section">
-      <p class="section-label">Let's connect</p>
-      <h2>Open to new opportunities</h2>
-      <p class="cta-desc">Open to full-time positions in data analytics and AI/ML. Let's talk.</p>
-      <a class="btn btn-primary" href="contact.html">Say Hello →</a>
-      <div class="sidequest-divider">
-        <span>explore life beyond the code</span>
-      </div>
-      <div class="sidequest-btn">
-        <a class="btn btn-outline" href="sidequest.html">📷 Sidequest →</a>
+      <div class="cta-inner fade-up">
+        <h2>Open to new opportunities</h2>
+        <p class="cta-desc">Open to full-time positions in data analytics and AI/ML engineering. Let's talk.</p>
+        <a class="btn btn-primary magnetic" href="contact.html">Say hello <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="sidequest-divider"><span>explore life beyond the code</span></div>
+        <div class="sidequest-btn">
+          <a class="btn btn-outline" href="sidequest.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L19 6h0a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg> Sidequest</a>
+        </div>
       </div>
     </section>
 
     <footer>
-      <span>&#169; 2026 Sudip Shrestha &#xB7; Mississauga, Ontario, Canada</span>
+      <span>&copy; 2026 Sudip Shrestha &middot; Mississauga, Ontario, Canada</span>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sudipshrestha.ca@gmail.com" aria-label="Email">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         </a>
-        <a class="footer-link" href="https://www.linkedin.com/in/sudipshrestha-58/" target="_blank" rel="noopener" aria-label="LinkedIn" style="font-family:'DM Serif Display',serif;font-weight:bold;">in</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sudipshrestha-58/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
         <a class="footer-link" href="https://github.com/sudip70" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
         </a>
       </div>
     </footer>

@@ -8,31 +8,31 @@
   <link rel="canonical" href="https://sudip70.github.io/sidequest.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   <link rel="stylesheet" href="style.css" />
   <script src="theme.js"></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="39a871e4-0554-4159-bb8d-2d2ced68bd07"></script>
 </head>
 <body>
-
   <div class="nav-drawer-backdrop" id="nav-backdrop" onclick="closeDrawer()" aria-hidden="true" hidden></div>
   <div class="nav-drawer" id="nav-drawer" aria-hidden="true" hidden>
-    <div class="nav-drawer-close">
-      <span>Navigation</span>
-    </div>
+    <div class="nav-drawer-close"><span>Navigation</span></div>
     <ul class="nav-drawer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="sidequest.html" class="active">Sidequest</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="sidequest.html" class="active">Sidequest</a></li>
     </ul>
   </div>
+
   <nav>
     <div class="nav-inner">
-      <a class="nav-logo" href="index.html">Sudip<span>.</span></a>
+      <a class="nav-logo" href="index.html">
+        Sudip<span>.</span>
+      </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="experience.html">Experience</a></li>
@@ -53,17 +53,12 @@
   <div class="page">
 
     <div class="page-header narrow-bottom">
-      <p class="section-label fade-up d1">Beyond the code</p>
       <h1 class="fade-up d2">Side<em>quest</em></h1>
-      <p class="page-subtitle fade-up d3">Photography from around the world - Nepal, Switzerland, Germany, Qatar, and Canada.</p>
+      <p class="page-subtitle fade-up d3">Photography from around the world: Nepal, Switzerland, Germany, Qatar, and Canada.</p>
     </div>
 
     <div class="page-intro fade-up d3">
-      <p>
-        When I'm not building data pipelines or training models, I'm behind a lens.
-        Photography teaches me the same thing good code does - details matter,
-        and restraint is its own kind of craft.
-      </p>
+      <p>When I'm not building data pipelines or training models, I'm behind a lens. Photography teaches me the same thing good code does: details matter, and restraint is its own kind of craft.</p>
       <div class="shot-count">
         <span id="shot-count-value">0</span>
         frames selected
@@ -74,183 +69,93 @@
     <div class="gallery-wrap">
       <div class="masonry">
 
-        <!-- 01 · Nepal -->
         <div class="photo-item fade-up d1" onclick="openLightbox(0)" onkeydown="handlePhotoKey(event, 0)" role="button" tabindex="0" aria-label="Open photo from Kathmandu, Nepal">
           <img class="photo-img" src="images/kathmandu1.jpg" alt="Kathmandu, Nepal" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kathmandu, Nepal
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Kathmandu, Nepal</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Kathmandu, Nepal</span>
-              <span class="caption-note">Eyes that see everything and beyond.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Kathmandu, Nepal</span><span class="caption-note">Eyes that see everything and beyond.</span></span>
           </div>
         </div>
 
-        <!-- 02 · Nepal -->
         <div class="photo-item fade-up d2" onclick="openLightbox(1)" onkeydown="handlePhotoKey(event, 1)" role="button" tabindex="0" aria-label="Open photo from Kathmandu, Nepal">
           <img class="photo-img" src="images/kathmandu2.jpg" alt="Kathmandu, Nepal" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kathmandu, Nepal
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Kathmandu, Nepal</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Kathmandu, Nepal</span>
-              <span class="caption-note">What do they say about Kathmandu?</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Kathmandu, Nepal</span><span class="caption-note">What do they say about Kathmandu?</span></span>
           </div>
         </div>
 
-        <!-- 03 · Nepal -->
         <div class="photo-item fade-up d3" onclick="openLightbox(2)" onkeydown="handlePhotoKey(event, 2)" role="button" tabindex="0" aria-label="Open photo from Langtang National Park, Nepal">
           <img class="photo-img" src="images/langtang.jpg" alt="Langtang National Park, Nepal" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Langtang National Park, Nepal
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Langtang National Park, Nepal</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Langtang National Park, Nepal</span>
-              <span class="caption-note">Mountains in hikes are further than they appear.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Langtang National Park, Nepal</span><span class="caption-note">Mountains in hikes are further than they appear.</span></span>
           </div>
         </div>
 
-        <!-- 04 · Switzerland -->
         <div class="photo-item fade-up d4" onclick="openLightbox(3)" onkeydown="handlePhotoKey(event, 3)" role="button" tabindex="0" aria-label="Open photo from Kandersteg, Switzerland">
           <img class="photo-img" src="images/swiss1.jpg" alt="Kandersteg, Switzerland" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kandersteg, Switzerland
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Kandersteg, Switzerland</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Kandersteg, Switzerland</span>
-              <span class="caption-note">Rigid mountain &amp; Faith.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Kandersteg, Switzerland</span><span class="caption-note">Rigid mountain &amp; faith.</span></span>
           </div>
         </div>
 
-        <!-- 05 · Switzerland -->
         <div class="photo-item fade-up d5" onclick="openLightbox(4)" onkeydown="handlePhotoKey(event, 4)" role="button" tabindex="0" aria-label="Open photo from Oeschinensee, Switzerland">
           <img class="photo-img" src="images/swiss2.jpg" alt="Oeschinensee, Switzerland" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Oeschinensee, Switzerland
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Oeschinensee, Switzerland</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Oeschinensee, Switzerland</span>
-              <span class="caption-note">Bucketlist &amp; Blue lake.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Oeschinensee, Switzerland</span><span class="caption-note">Bucketlist &amp; blue lake.</span></span>
           </div>
         </div>
 
-        <!-- 06 · Germany -->
         <div class="photo-item fade-up d1" onclick="openLightbox(5)" onkeydown="handlePhotoKey(event, 5)" role="button" tabindex="0" aria-label="Open photo from Koblenz, Germany">
           <img class="photo-img" src="images/germany.jpg" alt="Koblenz, Germany" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Koblenz, Germany
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Koblenz, Germany</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Koblenz, Germany</span>
-              <span class="caption-note">Symmetry.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Koblenz, Germany</span><span class="caption-note">Symmetry.</span></span>
           </div>
         </div>
 
-        <!-- 07 · Qatar -->
         <div class="photo-item fade-up d2" onclick="openLightbox(6)" onkeydown="handlePhotoKey(event, 6)" role="button" tabindex="0" aria-label="Open photo from Doha, Qatar">
           <img class="photo-img" src="images/qatar.jpg" alt="Doha, Qatar" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Doha, Qatar
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Doha, Qatar</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Doha, Qatar</span>
-              <span class="caption-note">Lights and cityscape.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Doha, Qatar</span><span class="caption-note">Lights and cityscape.</span></span>
           </div>
         </div>
 
-        <!-- 08 · Canada -->
         <div class="photo-item fade-up d3" onclick="openLightbox(7)" onkeydown="handlePhotoKey(event, 7)" role="button" tabindex="0" aria-label="Open photo from Toronto, Canada">
           <img class="photo-img" src="images/canada1.jpg" alt="Toronto, Canada" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Toronto, Canada
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Toronto, Canada</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Toronto, Canada</span>
-              <span class="caption-note">Northern lights from the city.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Toronto, Canada</span><span class="caption-note">Northern lights from the city.</span></span>
           </div>
         </div>
 
-        <!-- 09 · Canada -->
         <div class="photo-item fade-up d4" onclick="openLightbox(8)" onkeydown="handlePhotoKey(event, 8)" role="button" tabindex="0" aria-label="Open photo from Toronto, Canada">
           <img class="photo-img" src="images/canada2.jpg" alt="Toronto, Canada" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Toronto, Canada
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Toronto, Canada</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Toronto, Canada</span>
-              <span class="caption-note">Total solar eclipse.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Toronto, Canada</span><span class="caption-note">Total solar eclipse.</span></span>
           </div>
         </div>
 
-        <!-- 10 · Canada -->
         <div class="photo-item fade-up d5" onclick="openLightbox(9)" onkeydown="handlePhotoKey(event, 9)" role="button" tabindex="0" aria-label="Open photo from Toronto, Canada">
           <img class="photo-img" src="images/canada3.jpg" alt="Toronto, Canada" loading="lazy" />
-          <div class="photo-overlay">
-            <div class="overlay-tag">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Toronto, Canada
-            </div>
-          </div>
+          <div class="photo-overlay"><span class="overlay-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Toronto, Canada</span></div>
           <div class="photo-caption">
-            <svg class="pin-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div class="caption-text">
-              <span class="caption-location">Toronto, Canada</span>
-              <span class="caption-note">Engineering and pinnacle of motorsports.</span>
-            </div>
+            <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="caption-text"><span class="caption-location">Toronto, Canada</span><span class="caption-note">Engineering and the pinnacle of motorsports.</span></span>
           </div>
         </div>
 
@@ -258,14 +163,14 @@
     </div>
 
     <footer>
-      <span>&#169; 2026 Sudip Shrestha &#xB7; Mississauga, Ontario, Canada</span>
+      <span>&copy; 2026 Sudip Shrestha &middot; Mississauga, Ontario, Canada</span>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sudipshrestha.ca@gmail.com" aria-label="Email">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         </a>
-        <a class="footer-link" href="https://www.linkedin.com/in/sudipshrestha-58/" target="_blank" rel="noopener" aria-label="LinkedIn" style="font-family:'DM Serif Display',serif;font-weight:bold;">in</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sudipshrestha-58/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
         <a class="footer-link" href="https://github.com/sudip70" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
         </a>
       </div>
     </footer>
@@ -274,9 +179,9 @@
   <!-- ── LIGHTBOX ── -->
   <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lb-location" aria-describedby="lb-note">
     <div class="lightbox-inner">
-      <button class="lb-close" type="button" onclick="closeLightbox()" aria-label="Close photo viewer">✕</button>
-      <button class="lb-nav lb-prev" type="button" onclick="navLightbox(-1)" aria-label="Previous photo">‹</button>
-      <button class="lb-nav lb-next" type="button" onclick="navLightbox(1)" aria-label="Next photo">›</button>
+      <button class="lb-close" type="button" onclick="closeLightbox()" aria-label="Close photo viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <button class="lb-nav lb-prev" type="button" onclick="navLightbox(-1)" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="lb-nav lb-next" type="button" onclick="navLightbox(1)" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
       <div class="lb-img-wrap">
         <img id="lb-img" alt="" />
       </div>
@@ -293,13 +198,13 @@
       { src: "images/kathmandu1.jpg", location: "Kathmandu, Nepal",              note: "Eyes that see everything and beyond."             },
       { src: "images/kathmandu2.jpg", location: "Kathmandu, Nepal",              note: "What do they say about Kathmandu?"                },
       { src: "images/langtang.jpg",   location: "Langtang National Park, Nepal", note: "Mountains in hikes are further than they appear." },
-      { src: "images/swiss1.jpg",     location: "Kandersteg, Switzerland",       note: "Rigid mountain & Faith."                          },
-      { src: "images/swiss2.jpg",     location: "Oeschinensee, Switzerland",     note: "Bucketlist & Blue lake."                          },
+      { src: "images/swiss1.jpg",     location: "Kandersteg, Switzerland",       note: "Rigid mountain & faith."                          },
+      { src: "images/swiss2.jpg",     location: "Oeschinensee, Switzerland",     note: "Bucketlist & blue lake."                          },
       { src: "images/germany.jpg",    location: "Koblenz, Germany",              note: "Symmetry."                                        },
       { src: "images/qatar.jpg",      location: "Doha, Qatar",                   note: "Lights and cityscape."                            },
       { src: "images/canada1.jpg",    location: "Toronto, Canada",               note: "Northern lights from the city."                   },
       { src: "images/canada2.jpg",    location: "Toronto, Canada",               note: "Total solar eclipse."                             },
-      { src: "images/canada3.jpg",    location: "Toronto, Canada",               note: "Engineering and pinnacle of motorsports."         },
+      { src: "images/canada3.jpg",    location: "Toronto, Canada",               note: "Engineering and the pinnacle of motorsports."     },
     ];
 
     document.getElementById('shot-count-value').textContent = photos.length;
@@ -348,7 +253,7 @@
       img.src = p.src;
       img.alt = p.location;
       document.getElementById('lb-location').innerHTML = `
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:.65">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:.65">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
           <circle cx="12" cy="10" r="3"/>
         </svg>${p.location}`;
