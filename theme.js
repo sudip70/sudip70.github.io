@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   theme.js — theme toggle · mobile drawer · scroll reveal
+   theme.js - theme toggle · mobile drawer · scroll reveal
    + refined motion (magnetic · spotlight · count-up)
 ═══════════════════════════════════════════════════════════════ */
 
