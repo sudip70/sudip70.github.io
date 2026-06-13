@@ -1,18 +1,22 @@
-# sudipshrestha.ca
+# Hey, I'm Sudip 👋
 
-## https://sudip70.github.io/
+This is the little corner of the internet where I keep my work, my projects, and the occasional photo I'm proud of.
 
-Personal portfolio site for Sudip Shrestha - Data Analyst & AI Engineer based in Mississauga, ON.
+### 🌐 [**sudip70.github.io**](https://sudip70.github.io/)
 
-## Pages
+---
 
-- **Home** - Hero, about, experience strip, featured projects
-- **Experience** - Work timeline and skills
-- **Education** - Degrees, coursework, research & publications
-- **Projects** - Filterable project grid (ML, NLP, Cloud, CV, Data Viz)
-- **Contact** - Contact info and EmailJS-powered message form
-- **Sidequest** - Photography gallery with lightbox
+If you found your way into this repo, you're probably one of:
 
-## Stack
+- a recruiter doing your due diligence (hi! 👀)
+- a fellow dev curious how the sausage gets made
+- me, three years from now, wondering what past-me was thinking
 
-Plain HTML, CSS, and vanilla JS - no frameworks or build tools. EmailJS for the contact form. Hosted on GitHub Pages.
+Whoever you are — welcome. Poke around. It's all HTML, CSS, and vanilla JS. No frameworks, no build step, no `node_modules` black hole. Just files that do what they say.
+
+---
+
+> _"The best portfolio is the one that's actually shipped."_
+> — me, justifying why this isn't a React app
+
+Got a cool opportunity, a question, or just want to say hi? The contact form on the site works, I promise — I built it twice to make sure. ☕
