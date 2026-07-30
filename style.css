@@ -784,7 +784,13 @@ a.proj-no:hover { text-decoration: underline; text-underline-offset: 3px; }
   padding-bottom: clamp(64px, 9vw, 110px);
   display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(36px, 6vw, 72px); align-items: start;
 }
-.contact-info h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px; }
+.contact-identity { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.contact-headshot {
+  flex-shrink: 0; width: clamp(72px, 7vw, 104px); height: auto; aspect-ratio: 1;
+  border-radius: 50%; object-fit: cover;
+  border: 1px solid var(--line); background: var(--surface-2);
+}
+.contact-info h2 { font-size: clamp(30px, 4vw, 44px); }
 .contact-info > p { color: var(--muted); font-size: 15px; max-width: 360px; margin-bottom: 36px; }
 .contact-items { display: flex; flex-direction: column; }
 .contact-item {
